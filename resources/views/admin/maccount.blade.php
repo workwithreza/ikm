@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
 </head>
 <body>
-
+    <h1>Test</h1>
 </body>
 </html>
