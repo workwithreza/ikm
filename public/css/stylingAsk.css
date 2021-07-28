@@ -1,0 +1,17 @@
+body{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.box{
+    background-color: white;
+    width: 50em;
+    height: 25em;
+    border-radius: 2em;
+}
+
+.box-header{
+    background-color: brown;
+    width: 100%;
+    border-radius: 2em 2em 0 0;
+    padding: 10px;
+}

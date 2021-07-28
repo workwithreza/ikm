@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+}
+
+.box{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 10px;
+    color: black;
+    width: 30%;
+}
+
+.box-header{
+    position: relative;
+    top: -40px;
+    text-align: center;
+}
+
+.box-body input{
+    position: relative;
+    top: -40px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.error-message{
+    color: red;
+}
+
+input[type="text"], input[type="password"]{
+    background-color: rgba(0,0,0,0.3);
+    color: black;
+    border: none;
+    padding: 5px 0px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="submit"]:focus{
+    outline: none;
+}
+
+input[type="submit"]{
+    border: none;
+}
