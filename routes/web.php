@@ -22,5 +22,9 @@ Route::get('/admin/logout',[AdminController::class, 'logout'])->name('admin.logo
 Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/', [MainController::class, 'login'])->name('login');
     Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/akun',[AdminController::class, 'akun'])->name('admin.akun');
     Route::get('/dashboard',[UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::post('/admin/tambah_akun',[AdminController::class, 'tambah'])->name('admin.tambah');
+    Route::get('/admin/hapus/{NIP}',[AdminController::class, 'hapus']);
+    Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
 });

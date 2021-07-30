@@ -20,7 +20,7 @@
                         <a class="nav-link active" aria-current="page" href="dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Manajemen Akun</a>
+                        <a class="nav-link" href="{{ route('admin.akun') }}">Manajemen Akun</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
