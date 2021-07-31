@@ -28,7 +28,7 @@ class MainController extends Controller{
                 if($UserInfo->is_admin == 1){
                     return redirect()->route('admin.dashboard');
                 }else{
-                    return redirect('dashboard');
+                    return redirect()->route('user.dashboard');
                 }
             }else{
                 return back()->with('fail','Password Tidak Sama');
