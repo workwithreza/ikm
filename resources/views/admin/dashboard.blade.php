@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin | Dashboard</title>
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
+    <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

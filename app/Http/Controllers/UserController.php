@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller{
     public function dashboard(){
-        return view('pegawai.pegawai');
+        $data = array("akun" => session('PegawaiLoged'));
+        return view('pegawai.pegawai',$data);
     }
     public function logout(){
         if(session()->has('PegawaiLoged')){

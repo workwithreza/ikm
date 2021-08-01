@@ -1,0 +1,46 @@
+a{
+    text-decoration: none;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.content-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    height: 80vh;
+}
+
+.content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.logo{
+    width: 600px;
+}
+
+.body-content{
+    z-index: 1;
+}
+
+.btn-custom{
+    background-color: rgba(0,120,190,0.8);
+    border-radius: 10px;
+    padding: 0 10px;
+    padding-top: 2px;
+    padding-bottom: 7px;
+    color: white;
+}
+
+.btn-custom:hover{
+    background-color: white;
+}
+
+.footer-content{
+    margin-top: -20px;
+}

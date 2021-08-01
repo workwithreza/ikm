@@ -7,6 +7,7 @@
     <title>BPBD | Login</title>
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
     <style>
         .error-message{
             color: red;
