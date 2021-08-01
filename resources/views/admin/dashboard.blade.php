@@ -24,7 +24,7 @@
                         <a class="nav-link" href="{{ route('admin.akun') }}">Manajemen Akun</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}" class="nav-link">Pegawai</a>
+                        <a href="{{ route('user.dashboard') }}" class="nav-link">Survey</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
