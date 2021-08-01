@@ -60,3 +60,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## This Project is Created By
+
+- Zaki Tifani Fauzan (3411181183)
+- Muhammad Reza Azzahrawan (3411181185)
+
+Student of Jenderal Achmad Yani University, Cimahi, Jawa Barat, Indonesia.
