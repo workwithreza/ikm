@@ -12,36 +12,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
+    <link rel="stylesheet" href="{{ asset('css/manajemen_akun.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="dashboard">BPBD | JABAR</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dashboard">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.akun') }}">Manajemen Akun</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
-                    </li>
-                </ul>
+    <div class="header-background">
+
+    </div>
+    <div class="container-custom">
+        <div class="side-nav">
+            <div class="side-box">
+                <div class="side-header">
+                    <a href="{{ route('admin.dashboard') }}" class="navbar-brand text-center"><p>BPBD | JABAR</p></a>
+                    <p class="m-0 text-center">Selamat Datang!</p>
+                    <h3 class="text-center">{{ $akun->nama_pegawai }}</h3>
+                </div>
+
+                <div class="side-body">
+                    <ul>
+                        <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
+                        <li><a href="{{ route('admin.akun') }}">Manajemen Akun</a></li>
+                        <li><a href="{{ route('user.dashboard') }}">Survey</a></li>
+                    </ul>
+                </div>
+
+                <div class="side-footer">
+                    <ul>
+                        <li><a href="{{ route('admin.logout') }}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">NIP</th>
+                            <th class="th-sm">Nama</th>
+                            <th class="th-sm">Username</th>
+                            <th class="th-sm">Password</th>
+                            <th class="th-sm">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($list as $item)
+                            <tr>
+                                <td>{{ $item->NIP }}</td>
+                                <td>{{ $item->nama_pegawai }}</td>
+                                <td>{{ $item->username_pegawai }}</td>
+                                <td>{{ $item->password_pegawai }}</td>
+                                <td class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btnedit" data-toggle="modal" data-target="#modaledit">Edit</button>
+                                    <a href="hapus/{{ $item->NIP }}" class="btn btn-danger">Hapus</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <div class="add">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalfade">
+                        Tambah Data Pegawai
+                    </button>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
     <div class="container">
         <div class="create-pegawai d-flex justify-content-center mb-3 mt-5">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalfade">
-                Tambah Data Pegawai
-            </button>
-
             <div class="modal fade" id="modalfade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="100%">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -108,32 +146,6 @@
                 </div>
             </div>
         </div>
-
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                    <th class="th-sm">NIP</th>
-                    <th class="th-sm">Nama</th>
-                    <th class="th-sm">Username</th>
-                    <th class="th-sm">Password</th>
-                    <th class="th-sm">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($list as $item)
-                    <tr>
-                        <td>{{ $item->NIP }}</td>
-                        <td>{{ $item->nama_pegawai }}</td>
-                        <td>{{ $item->username_pegawai }}</td>
-                        <td>{{ $item->password_pegawai }}</td>
-                        <td class="d-flex justify-content-around">
-                            <button class="btn btn-primary btnedit" data-toggle="modal" data-target="#modaledit">Edit</button>
-                            <a href="hapus/{{ $item->NIP }}" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
 
         <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="100%">
             <div class="modal-dialog">
@@ -224,6 +236,24 @@
     @enderror
 
     @error('nipedit')
+        <script>
+            $('#modaledit').modal('show');
+        </script>
+    @enderror
+
+    @error('namaedit')
+        <script>
+            $('#modaledit').modal('show');
+        </script>
+    @enderror
+
+    @error('usernameedit')
+        <script>
+            $('#modaledit').modal('show');
+        </script>
+    @enderror
+
+    @error('passwordedit')
         <script>
             $('#modaledit').modal('show');
         </script>

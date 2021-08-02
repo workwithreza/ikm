@@ -18,8 +18,8 @@ a, a:hover{
     color: black;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.9);
     z-index: 1;
+    top: 20px;
     width: 25%;
-    position: relative;
     height: 94vh;
     border-radius: 20px;
     padding: 20px;
@@ -45,10 +45,20 @@ li{
     background-image: url('../image/geometric-background.jpg');
     height: 10vh;
     width: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 0;
 }
 
 .content-wrapper{
     z-index: 1;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+.add{
+    text-align: center;
+}
+
+.btn{
+    padding: 5px;
 }

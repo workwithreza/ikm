@@ -14,7 +14,8 @@ class AdminController extends Controller{
 
     public function akun(){
         $data = array(
-            "list" => DB::table('pegawais')->get()
+            "list" => DB::table('pegawais')->get(),
+            "akun" => session('PegawaiLoged')
         );
         return view('admin.maccount',$data);
     }
