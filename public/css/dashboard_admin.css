@@ -1,0 +1,51 @@
+a, a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.container-custom{
+    width: 1260px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.side-nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.side-box{
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.9);
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    width: 25%;
+    height: 94vh;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.side-header{
+    padding-top: 15px;
+}
+
+.side-body{
+    margin-top: -60px;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.header-background{
+    background-image: url('../image/geometric-background.jpg');
+    height: 10vh;
+    width: 100%;
+}

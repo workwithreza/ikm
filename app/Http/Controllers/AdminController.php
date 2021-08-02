@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
     public function dashboard(){
-        return view('admin.dashboard');
+        $data = array("akun" => session('PegawaiLoged'));
+        return view('admin.dashboard', $data);
     }
 
     public function akun(){

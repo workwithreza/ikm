@@ -7,31 +7,36 @@
     <title>Admin | Dashboard</title>
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
     <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
+    <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="dashboard">BPBD | JABAR</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dashboard">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.akun') }}">Manajemen Akun</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('user.dashboard') }}" class="nav-link">Pegawai</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
-                    </li>
-                </ul>
+    <div class="header-background">
+
+    </div>
+    <div class="container-custom">
+        <div class="side-nav">
+            <div class="side-box">
+                <div class="side-header">
+                    <a href="{{ route('admin.dashboard') }}" class="navbar-brand text-center"><p>BPBD | JABAR</p></a>
+                    <p class="m-0 text-center">Selamat Datang!</p>
+                    <h3 class="text-center">{{ $akun->nama_pegawai }}</h3>
+                </div>
+
+                <div class="side-body">
+                    <ul>
+                        <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
+                        <li><a href="{{ route('admin.akun') }}">Manajemen Akun</a></li>
+                        <li><a href="{{ route('user.dashboard') }}">Survey</a></li>
+                    </ul>
+                </div>
+
+                <div class="side-footer">
+                    <ul>
+                        <li><a href="{{ route('admin.logout') }}">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 </body>
 </html>
