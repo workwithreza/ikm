@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\MultiStepForm;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,5 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::post('/admin/tambah_akun',[AdminController::class, 'tambah'])->name('admin.tambah');
     Route::get('/admin/hapus/{NIP}',[AdminController::class, 'hapus']);
     Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
+    Route::get('/user/survei',[UserController::class, 'survei'])->name('user.survei');
 });

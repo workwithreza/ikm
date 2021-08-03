@@ -9,6 +9,14 @@ class UserController extends Controller{
         $data = array("akun" => session('PegawaiLoged'));
         return view('pegawai.pegawai',$data);
     }
+
+    public function survei(){
+        $data = array(
+            "akun" => session('PegawaiLoged')
+        );
+        return view('pegawai.survei',$data);
+    }
+
     public function logout(){
         if(session()->has('PegawaiLoged')){
             session()->pull('PegawaiLoged');
