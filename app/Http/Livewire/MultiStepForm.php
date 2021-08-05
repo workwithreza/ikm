@@ -11,9 +11,9 @@ class MultiStepForm extends Component{
     public $kecamatans;
     public $kelurahans;
 
-    public $selectedKota;
-    public $selectedKecamatan;
-    public $selectedDesa;
+    public $selectedKota = null;
+    public $selectedKecamatan = null;
+    public $selectedDesa = null;
 
     public $log = [];
 
