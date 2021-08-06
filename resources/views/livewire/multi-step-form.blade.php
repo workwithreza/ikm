@@ -525,6 +525,396 @@
 
         {{-- Parameter 3 --}}
 
+        <div class="card">
+            @php
+                $i += 1;
+            @endphp
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Pengaruh Kerentanan Masyarakat Terhadap Upaya Pengurangan Risiko Bencana</div>
+            <div class="card-body">
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c1-1">
+                    <div class="title p-1">
+                        <p>Apakah jenis mata pencaharian dan tingkat penghasilan masyarakat mampu menjaga keberlangsungan perekonomiannya pada saat maupun pasca bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c1-2">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat mampu secara mandiri untuk menjaga keberlangsungan perekonomiannya pada saat maupun pasca bencana tersebut (tidak membutuhkan program-program bantuan sosial atau sejenisnya)?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c2-1">
+                    <div class="title p-1">
+                        <p>Apakah sebagian besar masyarakat telah lulus pendidikan Sekolah Menengah Atas (SMA atau sederajat)?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c2-2">
+                    <div class="title p-1">
+                        <p>Apakah sebagian besar masyarakat sedang atau telah lulus jenjang pendidikan Perguruan Tinggi?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c3-1">
+                    <div class="title p-1">
+                        <p>Apakah proses pengembangan pemukiman di wilayah  ini sudah memperhatikan acuan tata ruang?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-c3-2">
+                    <div class="title p-1">
+                        <p>Apakah proses pengembangan pemukiman di wilayah  ini sudah memperhatikan aspek pengurangan risiko bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {{-- Parameter 4 --}}
+
+        <div class="card">
+            @php
+                $i += 1;
+            @endphp
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Ketidak Tergantungan Masyarakat Terhadap Dukungan Pemerintah</div>
+            <div class="card-body">
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d1-1">
+                    <div class="title p-1">
+                        <p>Jika terjadi bencana, apakah masyarakat mampu menyiapkan kebutuhan pangan secara mandiri?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d1-2">
+                    <div class="title p-1">
+                        <p>Apakah penyiapan kebutuhan pangan oleh masyarakat dapat memenuhi kehidupan sampai selesainya masa tanggap darurat bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d2-1">
+                    <div class="title p-1">
+                        <p>Jika terjadi bencana, apakah masyarakat mampu melakukan perbaikan secara mandiri untuk tingkat kerusakan ringan pada bangunan dan lahan?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d2-2">
+                    <div class="title p-1">
+                        <p>Jika terjadi bencana, apakah masyarakat mampu melakukan perbaikan secara mandiri untuk tingkat kerusakan sedang/berat pada bangunan dan lahan?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d3-1">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat di wilayah ini telah memulai penerapan hasil-hasil penelitian terkait dengan pengurangan risiko bencana (seperti: penerapan struktur bangunan tahan gempa, penerapan terasering, ataupun penanaman hutan mangrove)?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d3-2">
+                    <div class="title p-1">
+                        <p>Apakah penerapan hasil-hasil penelitian terkait dengan pengurangan risiko bencana (seperti: penerapan struktur bangunan tahan gempa, penerapan terasering, ataupun penanaman hutan mangrove) tersebut dilakukan secara mandiri/ swadaya masyarakat?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d4-1">
+                    <div class="title p-1">
+                        <p>Jika terjadi bencana di wilayah ini, apakah masyarakat bisa terlibat secara aktif untuk membantu pemerintah dalam pelaksanaan operasi tanggap darurat?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-d4-2">
+                    <div class="title p-1">
+                        <p>Apakah keterlibatan masyarakat dilakukan berdasarkan prosedur tetap penanganan darurat bencana (SOP) tingkat Desa/Kelurahan yang tersinkronisasi dengan SOP tingkat Kabupaten/Kota</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {{-- Parameter 5 --}}
+
+        <div class="card">
+            @php
+                $i += 1;
+            @endphp
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Bentuk Partisipasi Masyarakat</div>
+            <div class="card-body">
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-e1-1">
+                    <div class="title p-1">
+                        <p>Apakah di tingkat kelurahan/desa sudah memiliki rencana kesiapsiagaan/kontinjensi yang disusun secara partisipatif oleh masyarakat?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-e1-2">
+                    <div class="title p-1">
+                        <p>Apakah rencana kesiapsiagaan/kontinjensi tersebut telah disahkan dalam bentuk Peraturan Desa atau aturan setingkat Desa yang lainnya?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-e2-1">
+                    <div class="title p-1">
+                        <p>Apakah terdapat kelompok/organisasi relawan desa untuk pengurangan risiko bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-e2-2">
+                    <div class="title p-1">
+                        <p>Apakah kelompok/organisasi relawan tersebut mampu melaksanakan upaya-upaya pengurangan risiko bencana secara mandiri?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </form>
 </div>
@@ -542,9 +932,20 @@
         document.getElementById("pertanyaan-b4-2-"+i).style.display = "none";
     }
 
+    document.getElementById("pertanyaan-c1-2").style.display = "none";
+    document.getElementById("pertanyaan-c2-2").style.display = "none";
+    document.getElementById("pertanyaan-c3-2").style.display = "none";
+
+    document.getElementById("pertanyaan-d1-2").style.display = "none";
+    document.getElementById("pertanyaan-d2-2").style.display = "none";
+    document.getElementById("pertanyaan-d3-2").style.display = "none";
+    document.getElementById("pertanyaan-d4-2").style.display = "none";
+
+    document.getElementById("pertanyaan-e1-2").style.display = "none";
+    document.getElementById("pertanyaan-e2-2").style.display = "none";
+
     $(document).ready(function(){
         $('input[type=radio]').click(function(){
-            console.log(this.name);
             var id = $(this).data("ask");
 
             if(this.name == "param_1_a1_1_"+id){
@@ -600,6 +1001,60 @@
                     document.getElementById('pertanyaan-b4-2-'+id).style.display = "block";
                 }else{
                     document.getElementById('pertanyaan-b4-2-'+id).style.display = "none";
+                }
+            }else if(this.name == "param_3_c1_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-c1-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-c1-2').style.display = "none";
+                }
+            }else if(this.name == "param_3_c2_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-c2-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-c2-2').style.display = "none";
+                }
+            }else if(this.name == "param_3_c3_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-c3-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-c3-2').style.display = "none";
+                }
+            }else if(this.name == "param_4_d1_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-d1-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-d1-2').style.display = "none";
+                }
+            }else if(this.name == "param_4_d2_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-d2-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-d2-2').style.display = "none";
+                }
+            }else if(this.name == "param_4_d3_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-d3-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-d3-2').style.display = "none";
+                }
+            }else if(this.name == "param_4_d4_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-d4-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-d4-2').style.display = "none";
+                }
+            }else if(this.name == "param_5_e1_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-e1-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-e1-2').style.display = "none";
+                }
+            }else if(this.name == "param_5_e2_1"){
+                if($(this).val() == 1){
+                    document.getElementById('pertanyaan-e2-2').style.display = "block";
+                }else{
+                    document.getElementById('pertanyaan-e2-2').style.display = "none";
                 }
             }
         });
