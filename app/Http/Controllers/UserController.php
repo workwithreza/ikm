@@ -10,9 +10,10 @@ class UserController extends Controller{
         return view('pegawai.pegawai',$data);
     }
 
-    public function survei(){
+    public function survei($step){
         $data = array(
-            "akun" => session('PegawaiLoged')
+            "akun" => session('PegawaiLoged'),
+            "step" => $step
         );
         return view('pegawai.survei',$data);
     }

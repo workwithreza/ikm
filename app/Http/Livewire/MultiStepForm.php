@@ -15,7 +15,12 @@ class MultiStepForm extends Component{
     public $selectedKecamatan = null;
     public $selectedDesa = null;
 
-    public $log = [];
+    public $currentStep = 1;
+    public $lastStep = 16;
+
+    public function mount($step){
+        $this->currentStep = $step;
+    }
 
     public function render(){
         $this->kotas = DB::table('wilayah_2020')
@@ -37,5 +42,15 @@ class MultiStepForm extends Component{
             "akun" => session('PegawaiLoged')
         );
         return view('livewire.multi-step-form',$data);
+    }
+
+    public function increaseStep(){
+        $this->currentStep += 1;
+        return redirect()->route('user.survei',$this->currentStep);
+    }
+
+    public function decreaseStep(){
+        $this->currentStep -= 1;
+        return redirect()->route('user.survei',$this->currentStep);
     }
 }

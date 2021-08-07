@@ -23,7 +23,7 @@
         {{ csrf_field() }}
 
         {{-- Step 1 : Pengisian Identitas --}}
-
+        @if ($currentStep == 1)
         <div class="card">
             <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Pengisian Identitas</div>
             <div class="card-body">
@@ -108,7 +108,6 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -124,10 +123,6 @@
                         </div>
                     </div>
                 </div>
-
-                @foreach ($log as $l)
-                    <h1>{{ $l }}</h1>
-                @endforeach
 
                 <div class="row">
                     <div class="col-md-6">
@@ -146,389 +141,394 @@
                 </div>
             </div>
         </div>
+        @endif
 
         @foreach ($bencana as $key => $value)
-            <div class="card">
-                @php
-                    $i++;
-                @endphp
-                <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - {{ $value }}</div>
-                <div class="card-body">
+        @php
+            $i++;
+        @endphp
+        @if ($currentStep == $i)
 
-                    {{-- Parameter 1 --}}
+        <div class="card">
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - {{ $value }}</div>
+            <div class="card-body">
 
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a1-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat mengetahui potensi bencana dan bencana turunannya yang ada di Desa/Kelurahan?</p>
+                {{-- Parameter 1 --}}
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a1-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat mengetahui potensi bencana dan bencana turunannya yang ada di Desa/Kelurahan?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
                         </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
                         </div>
                     </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a1-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat mengetahui tanda-tanda alam penyebab terjadi bencana di Desanya?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat mengetahui tanda-tanda alam penyebab terjadi bencana di Desanya?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat pernah mendapatkan sosialsasi tentang penyebab dan tanda- tanda terjadinya bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat mengetahui dan mendapatkan sistem peringatan dini bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah ada sumber daya khusus (sarana, prasarana, personil) untuk penyebaran informasi peringatan dini bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah mesyarakat telah mengetahui dampak yang mungkin terjadi akibat bencana (korban jiwa/ kerugian ekonomi/ kerusakan bangunan)?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah masyarakat telah melakukan upaya-upaya untuk mengurangi kerentanan (dampak yang mungkin terjadi) akibat bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah telah ada Rencana Evakuasi Desa yang disusun dan disosialisasikan?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah Rencana Evakuasi Desa tersebut telah diujicoba melalui pelaksanaan simulasi evakuasi Desa?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Parameter 2 --}}
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b1-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah telah tersedia jalur evakuasi yang dilengkapi dengan rambu-rambu evakuasi serta lokasi yang dapat  digunakan sebagai tempat evakuasi jika terjadi bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b1-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah tempat evakuasi tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah telah tersedia lokasi yang dapat  digunakan sebagai tempat pengungsian jika terjadi bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah tempat pengungsian tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah telah terdapat sumber air bersih, sarana sanitasi (MCK) yang dapat digunakan pada saat pengungsian?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah sumber air bersih, sarana sanitasi (MCK) tersebut telah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-1-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah telah tersedia tenaga kesehatan di desa yang dapat membantu pada saat tanggap darurat bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-2-{{ $key }}">
-                        <div class="title p-1">
-                            <p>Apakah tenaga kesehatan tersebut sudah dilengkapi dengan fasilitas standar kesehatan untuk mendukung proses penyelamatan korban pada saat tanggap darurat bencana?</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Ya
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Tidak
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a1-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat mengetahui tanda-tanda alam penyebab terjadi bencana di Desanya?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat mengetahui tanda-tanda alam penyebab terjadi bencana di Desanya?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat pernah mendapatkan sosialsasi tentang penyebab dan tanda- tanda terjadinya bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat mengetahui dan mendapatkan sistem peringatan dini bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah ada sumber daya khusus (sarana, prasarana, personil) untuk penyebaran informasi peringatan dini bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah mesyarakat telah mengetahui dampak yang mungkin terjadi akibat bencana (korban jiwa/ kerugian ekonomi/ kerusakan bangunan)?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah masyarakat telah melakukan upaya-upaya untuk mengurangi kerentanan (dampak yang mungkin terjadi) akibat bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah telah ada Rencana Evakuasi Desa yang disusun dan disosialisasikan?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah Rencana Evakuasi Desa tersebut telah diujicoba melalui pelaksanaan simulasi evakuasi Desa?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Parameter 2 --}}
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b1-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah telah tersedia jalur evakuasi yang dilengkapi dengan rambu-rambu evakuasi serta lokasi yang dapat  digunakan sebagai tempat evakuasi jika terjadi bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b1-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah tempat evakuasi tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah telah tersedia lokasi yang dapat  digunakan sebagai tempat pengungsian jika terjadi bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah tempat pengungsian tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah telah terdapat sumber air bersih, sarana sanitasi (MCK) yang dapat digunakan pada saat pengungsian?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah sumber air bersih, sarana sanitasi (MCK) tersebut telah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-1-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah telah tersedia tenaga kesehatan di desa yang dapat membantu pada saat tanggap darurat bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-2-{{ $key }}">
+                    <div class="title p-1">
+                        <p>Apakah tenaga kesehatan tersebut sudah dilengkapi dengan fasilitas standar kesehatan untuk mendukung proses penyelamatan korban pada saat tanggap darurat bencana?</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ya
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+        @endif
         @endforeach
 
         {{-- Parameter 3 --}}
-
+        @php
+            $i += 1;
+        @endphp
+        @if ($currentStep == $i)
         <div class="card">
-            @php
-                $i += 1;
-            @endphp
+
             <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Pengaruh Kerentanan Masyarakat Terhadap Upaya Pengurangan Risiko Bencana</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c1-1">
@@ -653,13 +653,16 @@
 
             </div>
         </div>
+        @endif
 
         {{-- Parameter 4 --}}
-
-        <div class="card">
             @php
                 $i += 1;
             @endphp
+
+        @if ($currentStep == $i)
+
+        <div class="card">
             <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Ketidak Tergantungan Masyarakat Terhadap Dukungan Pemerintah</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d1-1">
@@ -824,13 +827,16 @@
 
             </div>
         </div>
+        @endif
 
         {{-- Parameter 5 --}}
-
-        <div class="card">
             @php
                 $i += 1;
             @endphp
+
+        @if ($currentStep == $i)
+
+        <div class="card">
             <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Bentuk Partisipasi Masyarakat</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-e1-1">
@@ -915,34 +921,61 @@
 
             </div>
         </div>
+        @endif
+
+        <div class="action-buttons d-flex justify-content-between bg-white pt-2 pb-2">
+            @if($currentStep == 1)
+                <div></div>
+            @endif
+
+            @if($currentStep >= 2 && $currentStep <= 16)
+                <button type="button" class="btn btn-md btn-secondary" wire:click="decreaseStep()">Sebelumnya</button>
+            @endif
+
+            @if($currentStep >= 1 && $currentStep < 16)
+                <button type="button" class="btn btn-md btn-success" wire:click="increaseStep()">Selanjutnya</button>
+            @endif
+
+            @if($currentStep == 16)
+                <button type="button" class="btn btn-md btn-primary">Submit</button>
+            @endif
+        </div>
 
     </form>
 </div>
 
 <script>
-    for(var i=1; i<=12; i++){
-        document.getElementById("pertanyaan-a1-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-a2-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-a3-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-a4-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-a5-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-b1-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-b2-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-b3-2-"+i).style.display = "none";
-        document.getElementById("pertanyaan-b4-2-"+i).style.display = "none";
-    }
+    @if ($currentStep > 1 && $currentStep < 14)
+        document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+    @endif
 
-    document.getElementById("pertanyaan-c1-2").style.display = "none";
-    document.getElementById("pertanyaan-c2-2").style.display = "none";
-    document.getElementById("pertanyaan-c3-2").style.display = "none";
 
-    document.getElementById("pertanyaan-d1-2").style.display = "none";
-    document.getElementById("pertanyaan-d2-2").style.display = "none";
-    document.getElementById("pertanyaan-d3-2").style.display = "none";
-    document.getElementById("pertanyaan-d4-2").style.display = "none";
 
-    document.getElementById("pertanyaan-e1-2").style.display = "none";
-    document.getElementById("pertanyaan-e2-2").style.display = "none";
+    @if ($currentStep == 14)
+        document.getElementById("pertanyaan-c1-2").style.display = "none";
+        document.getElementById("pertanyaan-c2-2").style.display = "none";
+        document.getElementById("pertanyaan-c3-2").style.display = "none";
+    @endif
+
+    @if ($currentStep == 15)
+        document.getElementById("pertanyaan-d1-2").style.display = "none";
+        document.getElementById("pertanyaan-d2-2").style.display = "none";
+        document.getElementById("pertanyaan-d3-2").style.display = "none";
+        document.getElementById("pertanyaan-d4-2").style.display = "none";
+    @endif
+
+    @if ($currentStep == 16)
+        document.getElementById("pertanyaan-e1-2").style.display = "none";
+        document.getElementById("pertanyaan-e2-2").style.display = "none";
+    @endif
 
     $(document).ready(function(){
         $('input[type=radio]').click(function(){

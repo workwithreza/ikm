@@ -43,7 +43,7 @@
                     <h1>Selamat Datang, {{ $akun->nama_pegawai }}!</h1>
                 </div>
                 <div class="body-content mt-3">
-                    <h5>Mulai lakukan <a href="{{ route('user.survei') }}" class="btn-custom">survey</a></h5>
+                    <h5>Mulai lakukan <a href="{{ route('user.survei',1) }}" class="btn-custom">survey</a></h5>
                 </div>
                 <div class="footer-content">
                     <img src="{{ asset('image/image_dashboard_user.jpg') }}" alt="survey logo" class="logo">

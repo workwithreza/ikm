@@ -19,7 +19,7 @@
         <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
                 <h1>Survei</h1><hr>
-                @livewire('multi-step-form')
+                @livewire('multi-step-form',['step' => $step])
             </div>
         </div>
     </div>
