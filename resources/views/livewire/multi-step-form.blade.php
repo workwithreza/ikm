@@ -161,13 +161,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a1_1">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a1_1">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -181,13 +181,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1" wire:model="a1_2">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1" wire:model.defer="a1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0" wire:model="a1_2">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0" wire:model.defer="a1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -201,13 +201,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a2_1">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a2_1">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -221,13 +221,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1" wire:model="a2_2">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1" wire:model.defer="a2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0" wire:model="a2_2">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0" wire:model.defer="a2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -241,13 +241,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a3_1">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a3_1">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -261,13 +261,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1" wire:model="a3_2">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1" wire:model.defer="a3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0" wire:model="a3_2">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0" wire:model.defer="a3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -281,13 +281,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a4_1">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a4_1">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -301,13 +301,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1" wire:model="a4_2">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1" wire:model.defer="a4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0" wire:model="a4_2">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0" wire:model.defer="a4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -321,13 +321,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a5_1">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a5_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a5_1">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a5_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -341,13 +341,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1" wire:model="a5_2">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1" wire:model.defer="a5_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0" wire:model="a5_2">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0" wire:model.defer="a5_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -363,13 +363,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b1_1">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b1_1">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -383,13 +383,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1" wire:model="b1_2">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1" wire:model.defer="b1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0" wire:model="b1_2">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0" wire:model.defer="b1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -403,13 +403,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b2_1">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b2_1">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -423,13 +423,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1" wire:model="b2_2">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1" wire:model.defer="b2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0" wire:model="b2_2">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0" wire:model.defer="b2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -443,13 +443,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b3_1">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b3_1">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -463,13 +463,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1" wire:model="b3_2">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1" wire:model.defer="b3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0" wire:model="b3_2">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0" wire:model.defer="b3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -483,13 +483,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b4_1">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b4_1">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -503,13 +503,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1" wire:model="b4_2">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1" wire:model.defer="b4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0" wire:model="b4_2">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0" wire:model.defer="b4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -537,13 +537,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="1" wire:model="c1_1">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="1" wire:model.defer="c1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="0" wire:model="c1_1">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="0" wire:model.defer="c1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -557,13 +557,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="1" wire:model="c1_2">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="1" wire:model.defer="c1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="0" wire:model="c1_2">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="0" wire:model.defer="c1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -577,13 +577,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="1" wire:model="c2_1">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="1" wire:model.defer="c2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="0" wire:model="c2_1">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="0" wire:model.defer="c2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -597,13 +597,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="1" wire:model="c2_2">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="1" wire:model.defer="c2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="0" wire:model="c2_2">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="0" wire:model.defer="c2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -617,13 +617,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="1" wire:model="c3_1">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="1" wire:model.defer="c3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="0" wire:model="c3_1">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="0" wire:model.defer="c3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -637,13 +637,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="1" wire:model="c3_2">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="1" wire:model.defer="c3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="0" wire:model="c3_2">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="0" wire:model.defer="c3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -671,13 +671,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="1" wire:model="d1_1">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="1" wire:model.defer="d1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="0" wire:model="d1_1">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="0" wire:model.defer="d1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -691,13 +691,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="1" wire:model="d1_2">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="1" wire:model.defer="d1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="0" wire:model="d1_2">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="0" wire:model.defer="d1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -711,13 +711,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="1" wire:model="d2_1">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="1" wire:model.defer="d2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="0" wire:model="d2_1">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="0" wire:model.defer="d2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -731,13 +731,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="1" wire:model="d2_2">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="1" wire:model.defer="d2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="0" wire:model="d2_2">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="0" wire:model.defer="d2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -751,13 +751,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="1" wire:model="d3_1">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="1" wire:model.defer="d3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="0" wire:model="d3_1">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="0" wire:model.defer="d3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -771,13 +771,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="1" wire:model="d3_2">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="1" wire:model.defer="d3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="0" wire:model="d3_2">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="0" wire:model.defer="d3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -791,13 +791,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="1" wire:model="d4_1">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="1" wire:model.defer="d4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="0" wire:model="d4_1">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="0" wire:model.defer="d4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -811,13 +811,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="1" wire:model="d4_2">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="1" wire:model.defer="d4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="0" wire:model="d4_2">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="0" wire:model.defer="d4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -845,13 +845,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="1" wire:model="e1_1">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="1" wire:model.defer="e1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="0" wire:model="e1_1">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="0" wire:model.defer="e1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -865,13 +865,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="1" wire:model="e1_2">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="1" wire:model.defer="e1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="0" wire:model="e1_2">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="0" wire:model.defer="e1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -885,13 +885,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="1" wire:model="e2_1">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="1" wire:model.defer="e2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="0" wire:model="e2_1">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="0" wire:model.defer="e2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -905,13 +905,13 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="1" wire:model="e2_2">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="1" wire:model.defer="e2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="0" wire:model="e2_2">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="0" wire:model.defer="e2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
@@ -946,15 +946,33 @@
 
 <script>
     @if ($currentStep > 1 && $currentStep < 14)
-        document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 1 }}).style.display = "none";
-        document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @if ($a1_1 == 0)
+            document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($a2_1 == 0)
+            document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($a3_1 == 0)
+            document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($a4_1 == 0)
+            document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($a5_1 == 0)
+            document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($b1_1 == 0)
+            document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($b2_1 == 0)
+            document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($b3_1 == 0)
+            document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
+        @if ($b4_1 == 0)
+            document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+        @endif
     @endif
 
 
