@@ -23,19 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wilayah_2020`
+-- Table structure for table `wilayah`
 --
 
-CREATE TABLE `wilayah_2020` (
+CREATE TABLE `wilayah` (
   `kode` varchar(13) NOT NULL,
   `nama` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `wilayah_2020`
+-- Dumping data for table `wilayah`
 --
 
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('11', 'ACEH'),
 ('11.01', 'KAB. ACEH SELATAN'),
 ('11.01.01', 'Bakongan'),
@@ -1575,7 +1575,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('11.05.01.2005', 'Ujong Baroh'),
 ('11.05.01.2006', 'Rundeng'),
 ('11.05.01.2007', 'Drien Rampak');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('11.05.01.2008', 'Pasir'),
 ('11.05.01.2009', 'Pasar Aceh'),
 ('11.05.01.2010', 'Padang Seurahet'),
@@ -3167,7 +3167,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('11.07.22.2005', 'Jujiem'),
 ('11.07.22.2006', 'Rheng'),
 ('11.07.22.2007', 'Cot Nuran');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('11.07.22.2008', 'Pulo Pantee'),
 ('11.07.22.2009', 'Pulo Teungoh'),
 ('11.07.22.2010', 'Asan Nicah'),
@@ -4730,7 +4730,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('11.11.06.2027', 'Ara Lipeh'),
 ('11.11.07', 'Gandapura'),
 ('11.11.07.2001', 'Keude Lapang');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('11.11.07.2002', 'Lapang Barat'),
 ('11.11.07.2003', 'Lingka Kuta'),
 ('11.11.07.2004', 'Lapang Timu'),
@@ -6298,7 +6298,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('11.18.01.2030', 'Teupin Peuraho'),
 ('11.18.02', 'Ulim'),
 ('11.18.02.2001', 'Dayah Baroh');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('11.18.02.2002', 'Reuleut'),
 ('11.18.02.2003', 'Sambungan  Baro'),
 ('11.18.02.2004', 'Tijien Husen'),
@@ -7854,7 +7854,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('12.05.03.2013', 'Sei Penjara'),
 ('12.05.03.2015', 'Perkebunan Bekiun'),
 ('12.05.03.2016', 'Garunggang');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('12.05.03.2017', 'Suka Damai'),
 ('12.05.03.2018', 'Sido Makmur'),
 ('12.05.04', 'Sei Bingei'),
@@ -9414,7 +9414,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('12.09.23.2007', 'Sei Alim Hasak'),
 ('12.09.23.2008', 'Tanjung Asri'),
 ('12.09.23.2009', 'Sei Kamah Baru');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('12.09.23.2010', 'Pasiran'),
 ('12.09.24', 'Sei Kepayang Barat'),
 ('12.09.24.2001', 'Sei Nangka'),
@@ -10963,7 +10963,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('12.14.35.2011', 'Hiligabungan'),
 ('12.14.35.2012', 'Buhawa'),
 ('12.15', 'KAB. PAKPAK BHARAT');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('12.15.01', 'Sitelu Tali Urang Jehe'),
 ('12.15.01.2001', 'Tanjung Meriah'),
 ('12.15.01.2002', 'Tanjung Mulia'),
@@ -12509,7 +12509,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('12.22.03.2002', 'Rasau'),
 ('12.22.03.2003', 'Teluk Rampah'),
 ('12.22.03.2004', 'Pangarungan');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('12.22.03.2005', 'Bunut'),
 ('12.22.03.2006', 'Aek Batu'),
 ('12.22.03.2007', 'Pinang Damai'),
@@ -14044,7 +14044,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('13.06.04.2003', 'Tigo Balai'),
 ('13.06.04.2004', 'Lawang'),
 ('13.06.04.2005', 'Parik Panjang');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('13.06.04.2006', 'Panta Pauh'),
 ('13.06.05', 'IV Koto'),
 ('13.06.05.2002', 'Sungai Landia'),
@@ -15601,7 +15601,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('14.04.11.2012', 'Pasir Emas'),
 ('14.04.11.2013', 'Simpang Jaya'),
 ('14.04.12', 'Gaung');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('14.04.12.1006', 'Kuala Lahang'),
 ('14.04.12.2001', 'Terusan Kempas'),
 ('14.04.12.2002', 'Lahang Baru'),
@@ -17143,7 +17143,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('15.01.21', 'Air Hangat Barat'),
 ('15.01.21.2001', 'Koto Mebai'),
 ('15.01.21.2002', 'Baru');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('15.01.21.2003', 'Air Panas'),
 ('15.01.21.2004', 'Hamparan Pugu'),
 ('15.01.21.2005', 'Pugu'),
@@ -18714,7 +18714,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('16.01.30', 'Lubuk Raja'),
 ('16.01.30.2001', 'Batu Marta I'),
 ('16.01.30.2002', 'Batu Marta II');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('16.01.30.2003', 'Lekis Rejo'),
 ('16.01.30.2004', 'Lubuk Banjar'),
 ('16.01.30.2005', 'Marta Jaya'),
@@ -20292,7 +20292,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('16.07.04.2004', 'Mukut'),
 ('16.07.04.2006', 'Sumber Rejeki'),
 ('16.07.04.2007', 'Dana Mulya');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('16.07.04.2008', 'Wana Mukti'),
 ('16.07.04.2009', 'Budi Asih'),
 ('16.07.04.2013', 'Rukun Makmur'),
@@ -21859,7 +21859,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('16.71.12.1001', 'Gandus'),
 ('16.71.12.1002', 'Karang Anyar'),
 ('16.71.12.1003', '36 Ilir');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('16.71.12.1004', 'Karang Jaya'),
 ('16.71.12.1005', 'Pulo Kerto'),
 ('16.71.13', 'Kertapati'),
@@ -23432,7 +23432,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('17.08.04.2010', 'Kampung Bogor'),
 ('17.08.04.2012', 'Kuto Rejo'),
 ('17.08.04.2013', 'Karang Anyar');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('17.08.04.2014', 'Taba Tebelet'),
 ('17.08.04.2015', 'Pelangkian'),
 ('17.08.04.2016', 'Kelobak'),
@@ -25002,7 +25002,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('18.06.04.2013', 'Way Ilahan'),
 ('18.06.04.2014', 'Batu Bedil'),
 ('18.06.04.2015', 'Air Bakoman');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('18.06.04.2025', 'Sumber Mulya'),
 ('18.06.04.2026', 'Sindang Marga'),
 ('18.06.04.2027', 'Talang Jawa'),
@@ -26581,7 +26581,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('18.72.03', 'Metro Barat'),
 ('18.72.03.1001', 'Mulyojati'),
 ('18.72.03.1002', 'Ganjar Agung');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('18.72.03.1003', 'Mulyosari'),
 ('18.72.03.1004', 'Ganjar Asri'),
 ('18.72.04', 'Metro Timur'),
@@ -28244,7 +28244,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('32.01.30.2001', 'Sukadamai'),
 ('32.01.30.2002', 'Ciherang'),
 ('32.01.30.2003', 'Sinarsari');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('32.01.30.2004', 'Sukawening'),
 ('32.01.30.2005', 'Petir'),
 ('32.01.30.2006', 'Purwasari'),
@@ -29924,7 +29924,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('32.05.37.2003', 'Mekarmukti'),
 ('32.05.37.2004', 'Mekarmulya'),
 ('32.05.37.2005', 'Sukalaksana');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('32.05.37.2006', 'Selaawi'),
 ('32.05.37.2007', 'Mekarwangi'),
 ('32.05.38', 'Bl. Limbangan'),
@@ -31595,7 +31595,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('32.10.04.2010', 'Talaga Wetan'),
 ('32.10.04.2011', 'Ganeas'),
 ('32.10.04.2012', 'Salado');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('32.10.04.2013', 'Gunungmanik'),
 ('32.10.04.2014', 'Kertahayu'),
 ('32.10.04.2015', 'Mekarraharja'),
@@ -33272,7 +33272,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('32.15.19.2010', 'Pulokalapa'),
 ('32.15.19.2011', 'Pulomulya'),
 ('32.15.20', 'Tempuran');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('32.15.20.2001', 'Pancakarya'),
 ('32.15.20.2002', 'Dayeuhluhur'),
 ('32.15.20.2003', 'Lemahduhur'),
@@ -34941,7 +34941,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.02.12.2002', 'Sokawera'),
 ('33.02.12.2003', 'Pegalongan'),
 ('33.02.12.2004', 'Patikraja');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.02.12.2005', 'Notog'),
 ('33.02.12.2006', 'Karangendep'),
 ('33.02.12.2007', 'Sawangan Wetan'),
@@ -36619,7 +36619,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.06.13.2001', 'Puspo'),
 ('33.06.13.2002', 'Plipiran'),
 ('33.06.13.2003', 'Pakisarum');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.06.13.2004', 'Brunorejo'),
 ('33.06.13.2005', 'Brunosari'),
 ('33.06.13.2006', 'Somoleter'),
@@ -38364,7 +38364,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.12.06.2006', 'Bumiharjo'),
 ('33.12.06.2007', 'Gebang'),
 ('33.12.06.2009', 'Pondoksari');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.12.06.2010', 'Ngadiroyo'),
 ('33.12.06.2011', 'Ngadipiro'),
 ('33.12.07', 'Baturetno'),
@@ -40102,7 +40102,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.18.08', 'Juwana'),
 ('33.18.08.2001', 'Sejomulyo'),
 ('33.18.08.2002', 'Bringin');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.18.08.2003', 'Ketip'),
 ('33.18.08.2004', 'Pekuwon'),
 ('33.18.08.2005', 'Karang'),
@@ -41824,7 +41824,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.24.17.2002', 'Lebosari'),
 ('33.24.17.2003', 'Kadilangu'),
 ('33.24.17.2004', 'Gembonganomwetan');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.24.17.2005', 'Kaliyoso'),
 ('33.24.17.2006', 'Sukodadi'),
 ('33.24.17.2007', 'Sendangkulon'),
@@ -43512,7 +43512,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('33.74.10.1001', 'Meteseh'),
 ('33.74.10.1002', 'Rowosari'),
 ('33.74.10.1003', 'Mangunharjo');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('33.74.10.1004', 'Bulusan'),
 ('33.74.10.1005', 'Kramas'),
 ('33.74.10.1006', 'Tembalang'),
@@ -45249,7 +45249,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('35.05.06.2010', 'Jatilengger'),
 ('35.05.06.2011', 'Bendo'),
 ('35.05.06.2012', 'Sidorejo');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('35.05.06.2013', 'Maliran'),
 ('35.05.06.2014', 'Candirejo'),
 ('35.05.06.2015', 'Karangbendo'),
@@ -46972,7 +46972,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('35.10.24.2007', 'Kluncing'),
 ('35.10.24.2008', 'Tamansari'),
 ('35.10.25', 'Blimbingsari');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('35.10.25.2001', 'Blimbingsari'),
 ('35.10.25.2002', 'Kaotan'),
 ('35.10.25.2003', 'Watukebo'),
@@ -48663,7 +48663,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('35.16.09.2010', 'Randugenengan'),
 ('35.16.09.2011', 'Pohkecik'),
 ('35.16.09.2012', 'Dlanggu');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('35.16.09.2013', 'Ngembeh'),
 ('35.16.09.2014', 'Sumberkarang'),
 ('35.16.09.2015', 'Kedunglengkong'),
@@ -50398,7 +50398,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('35.22.12.2024', 'Bogangin'),
 ('35.22.12.2025', 'Sumberharjo'),
 ('35.22.12.2026', 'Margoagung');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('35.22.13', 'Balen'),
 ('35.22.13.2001', 'Sidobandung'),
 ('35.22.13.2002', 'Mayangkawis'),
@@ -52108,7 +52108,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('35.26.16.2006', 'Patenteng'),
 ('35.26.16.2007', 'Srabi Barat'),
 ('35.26.16.2008', 'Srabi Timur');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('35.26.16.2009', 'Pangpajung'),
 ('35.26.16.2010', 'Karang Anyar'),
 ('35.26.16.2011', 'Alas Kokon'),
@@ -53791,7 +53791,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('36.02.01.2023', 'Sukamanah'),
 ('36.02.01.2024', 'Senanghati'),
 ('36.02.01.2026', 'Sangiang');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('36.02.02', 'Panggarangan'),
 ('36.02.02.2002', 'Panggarangan'),
 ('36.02.02.2003', 'Jatake'),
@@ -55481,7 +55481,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('51.05.01.2013', 'Jungutbatu'),
 ('51.05.01.2014', 'Pejukutan'),
 ('51.05.01.2015', 'Kutampi Kaler');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('51.05.01.2016', 'Bunga Mekar'),
 ('51.05.02', 'Banjarangkan'),
 ('51.05.02.2001', 'Negari'),
@@ -57204,7 +57204,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('53.01.06.2015', 'Oesao'),
 ('53.01.06.2016', 'Manusak'),
 ('53.01.06.2017', 'Tanah Putih');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('53.01.06.2018', 'Oelatimo'),
 ('53.01.07', 'Sulamu'),
 ('53.01.07.1001', 'Sulamu'),
@@ -58952,7 +58952,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('53.09.01.2022', 'Kila'),
 ('53.09.01.2023', 'Waesae'),
 ('53.09.02', 'Golewa');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('53.09.02.1008', 'Todabelu'),
 ('53.09.02.1017', 'Mataloko'),
 ('53.09.02.2002', 'Were I'),
@@ -60647,7 +60647,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('53.20.05.2005', 'Tanajawa'),
 ('53.20.05.2006', 'Ledeae'),
 ('53.20.05.2007', 'Wadumaddi');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('53.20.05.2008', 'Lederaga'),
 ('53.20.05.2009', 'Gurimonearu'),
 ('53.20.05.2010', 'Ramedue'),
@@ -62270,7 +62270,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('61.06.18.2001', 'Nanga Sebintang'),
 ('61.06.18.2002', 'Nanga Lebangan'),
 ('61.06.18.2003', 'Nanga Kalis');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('61.06.18.2004', 'Nanga Raun'),
 ('61.06.18.2005', 'Bahenap'),
 ('61.06.18.2006', 'Nanga Tubuk'),
@@ -63881,7 +63881,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('62.05.04.2008', 'Muara Wakat'),
 ('62.05.04.2012', 'Mampuak I'),
 ('62.05.04.2013', 'Jamut');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('62.05.04.2014', 'Sei Liju'),
 ('62.05.04.2015', 'Mampuak II'),
 ('62.05.05', 'Teweh Tengah'),
@@ -65470,7 +65470,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('63.03.11.2007', 'Artain'),
 ('63.03.11.2008', 'Rantau Balai'),
 ('63.03.11.2009', 'Tiwingan Baru');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('63.03.11.2010', 'Belangian'),
 ('63.03.11.2011', 'Aranio'),
 ('63.03.11.2012', 'Pa\'au'),
@@ -67065,7 +67065,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('63.72.04.1003', 'Komet'),
 ('63.72.04.1004', 'Sungai Ulin'),
 ('63.72.05', 'Banjarbaru Selatan');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('63.72.05.1001', 'Sungai Besar'),
 ('63.72.05.1002', 'Laktabat Selatan'),
 ('63.72.05.1003', 'Kemuning'),
@@ -68684,7 +68684,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('65.03.19.2002', 'Long Puak'),
 ('65.03.19.2003', 'Long Mangan'),
 ('65.03.19.2004', 'Buduk Kubul');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('65.03.19.2005', 'Long Kabid'),
 ('65.03.19.2006', 'Pa\' Inan'),
 ('65.03.19.2007', 'Lembudud'),
@@ -70349,7 +70349,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('71.09.10.2001', 'Humbia'),
 ('71.09.10.2002', 'Kisihang'),
 ('71.09.10.2003', 'Bira Kiama');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('71.09.10.2004', 'Buha'),
 ('71.09.10.2005', 'Batumawira'),
 ('71.09.10.2006', 'Birarikei'),
@@ -72055,7 +72055,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('72.07.17.2004', 'Montop'),
 ('72.07.17.2005', 'Bolubung'),
 ('72.07.17.2006', 'Bakalinga');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('72.07.17.2007', 'Lukpanenteng'),
 ('72.07.17.2008', 'Koyobunga'),
 ('72.07.17.2010', 'Ombuli'),
@@ -73745,7 +73745,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('73.06.18.2001', 'Borimatangkasa'),
 ('73.06.18.2002', 'Mandalle'),
 ('73.06.18.2003', 'Manjalling');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('73.06.18.2004', 'Gentungang'),
 ('73.06.18.2005', 'Tanabangka'),
 ('73.06.18.2006', 'Kalemandelle'),
@@ -75455,7 +75455,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('73.17.22.2012', 'Ta\'ba'),
 ('73.18', 'KAB. TANA TORAJA'),
 ('73.18.01', 'Saluputi');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('73.18.01.1009', 'Pattan Ulusalu'),
 ('73.18.01.2010', 'Salutandung'),
 ('73.18.01.2011', 'Rea Tulak Langi'),
@@ -77154,7 +77154,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('74.04.24.2009', 'Umalaoge'),
 ('74.04.24.2010', 'Lasalimu'),
 ('74.04.24.2011', 'Wajah Jaya');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('74.04.24.2012', 'Siontapina'),
 ('74.04.24.2013', 'Siomanuru'),
 ('74.04.24.2016', 'Mulya Jaya'),
@@ -78872,7 +78872,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('74.72.02', 'Wolio'),
 ('74.72.02.1001', 'Wale'),
 ('74.72.02.1002', 'Tomba');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('74.72.02.1003', 'Bataraguru'),
 ('74.72.02.1004', 'Wangkanapi'),
 ('74.72.02.1005', 'Batulo'),
@@ -80598,7 +80598,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('81.01.20.2004', 'Paa'),
 ('81.01.20.2005', 'Karlutu Kara'),
 ('81.01.20.2006', 'Pasanea');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('81.01.20.2007', 'Labuan'),
 ('81.01.20.2008', 'Gale-gale'),
 ('81.01.20.2009', 'Latea'),
@@ -82347,7 +82347,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('82.04.05.2008', 'Gambaru'),
 ('82.04.05.2009', 'Ocimaloleo'),
 ('82.04.06', 'Obi');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('82.04.06.2001', 'Laiwui'),
 ('82.04.06.2002', 'Baru'),
 ('82.04.06.2003', 'Buton'),
@@ -84120,7 +84120,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('91.05.12.2006', 'Rosbori'),
 ('91.05.12.2007', 'Waisani'),
 ('91.05.12.2008', 'Saruman');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('91.05.12.2009', 'Aryobu'),
 ('91.05.13', 'Pulau Kurudu'),
 ('91.05.13.2001', 'Kaipuri'),
@@ -85919,7 +85919,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('91.13.19', 'Werima'),
 ('91.13.19.2001', 'Lokon'),
 ('91.13.19.2002', 'Luarima');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('91.13.19.2003', 'Werima'),
 ('91.13.19.2004', 'Hanoasuok'),
 ('91.13.19.2005', 'Wesagalep'),
@@ -87757,7 +87757,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('91.22.01.2043', 'Emon'),
 ('91.22.01.2044', 'Kwikma'),
 ('91.22.02', 'Apalapsili');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('91.22.02.2001', 'Apalapsili'),
 ('91.22.02.2002', 'Hubliki'),
 ('91.22.02.2003', 'Kulet'),
@@ -89565,7 +89565,7 @@ INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
 ('92.02.04.2006', 'Waseki Pop'),
 ('92.02.04.2007', 'Wasegi Indah'),
 ('92.02.04.2008', 'Ingkwoisi');
-INSERT INTO `wilayah_2020` (`kode`, `nama`) VALUES
+INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 ('92.02.04.2009', 'Bogor'),
 ('92.02.04.2010', 'Somi'),
 ('92.02.04.2011', 'Bedip Matoa'),

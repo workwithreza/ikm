@@ -125,17 +125,17 @@ class MultiStepForm extends Component{
     }
 
     public function render(){
-        $this->kotas = DB::table('wilayah_2020')
+        $this->kotas = DB::table('wilayah')
             ->whereRaw('LEFT(kode, "2") = "32" AND CHAR_LENGTH(kode) = 5')
             ->orderBy('nama','asc')
             ->get();
 
-        $this->kecamatans = DB::table('wilayah_2020')
+        $this->kecamatans = DB::table('wilayah')
             ->whereRaw('LEFT(kode, "5") = "'.$this->selectedKota.'" AND CHAR_LENGTH(kode) = 8')
             ->orderBy('nama','asc')
             ->get();
 
-        $this->kelurahans = DB::table('wilayah_2020')
+        $this->kelurahans = DB::table('wilayah')
             ->whereRaw('LEFT(kode, "8") = "'.$this->selectedKecamatan.'" AND CHAR_LENGTH(kode) = 13')
             ->orderBy('nama','asc')
             ->get();
@@ -218,5 +218,110 @@ class MultiStepForm extends Component{
         $this->putSession();
         $this->currentStep -= 1;
         return redirect()->route('user.survei',$this->currentStep);
+    }
+
+    public function saveToDB(){
+        $data = [];
+
+        //Insert to Responden
+        DB::table('responden')->insert([
+            'nama_responden' => "Asep",
+            'usia_responden' => 30,
+            'jenis_kelamin' => 'Laki-Laki',
+            'kode' => '32.04.28'
+        ]);
+        $no = DB::table('responden')->select('no_urut')->latest('no_urut')->first()->no_urut ?? 0;
+        $data['responden'] = $no;
+
+        //Insert to Param 3
+        DB::table('param_3')->insert([
+                'c1_1' => 1,
+                'c1_2' => 0,
+                'c2_1' => 1,
+                'c2_2' => 1,
+                'c3_1' => 0,
+                'c3_2' => 0
+        ]);
+        $no = DB::table('param_3')->select('no_param_3')->latest('no_param_3')->first()->no_param_3 ?? 0;
+        $data['param_3'] = $no;
+
+        //Insert to Param 4
+        DB::table('param_4')->insert([
+                'd1_1' => 1,
+                'd1_2' => 1,
+                'd2_1' => 0,
+                'd2_2' => 0,
+                'd3_1' => 1,
+                'd3_2' => 0,
+                'd4_1' => 1,
+                'd4_2' => 1
+        ]);
+        $no = DB::table('param_4')->select('no_param_4')->latest('no_param_4')->first()->no_param_4 ?? 0;
+        $data['param_4'] = $no;
+
+        //Insert to Param 5
+        DB::table('param_5')->insert([
+                'e1_1' => 1,
+                'e1_2' => 1,
+                'e2_1' => 1,
+                'e2_2' => 1
+        ]);
+        $no = DB::table('param_5')->select('no_param_5')->latest('no_param_5')->first()->no_param_5 ?? 0;
+        $data['param_5'] = $no;
+
+        for($i = 1; $i <= 12; $i++){
+            //Insert to Param 1
+            DB::table('param_1')->insert([
+                'a1_1' => 1,
+                'a1_2' => 0,
+                'a2_1' => 1,
+                'a2_2' => 1,
+                'a3_1' => 0,
+                'a3_2' => 0,
+                'a4_1' => 1,
+                'a4_2' => 0,
+                'a5_1' => 0,
+                'a5_2' => 0
+            ]);
+            $no = DB::table('param_1')->select('no_param_1')->latest('no_param_1')->first()->no_param_1 ?? 0;
+            $data['param_1_'.$i] = $no;
+
+            //Insert to Param 2
+            DB::table('param_2')->insert([
+                'b1_1' => 0,
+                'b1_2' => 0,
+                'b2_1' => 1,
+                'b2_2' => 0,
+                'b3_1' => 1,
+                'b3_2' => 1,
+                'b4_1' => 1,
+                'b4_2' => 1
+            ]);
+            $no = DB::table('param_2')->select('no_param_2')->latest('no_param_2')->first()->no_param_2 ?? 0;
+            $data['param_2_'.$i] = $no;
+
+            //Insert to Param 1_2
+            DB::table('param_1_2')->insert([
+                'no_bencana' => $i,
+                'no_param_1' => $data['param_1_'.$i],
+                'no_param_2' => $data['param_2_'.$i]
+            ]);
+            $no = DB::table('param_1_2')->select('no_param_1_2')->latest('no_param_1_2')->first()->no_param_1_2 ?? 0;
+            $data['param_1_2_'.$i] = $no;
+
+            //Insert to Survey
+            DB::table('survey')->insert([
+                'NIP' => session('PegawaiLoged')->NIP,
+                'no_urut' => $data['responden'],
+                'no_param_1_2' => $data['param_1_2_'.$i],
+                'no_param_3' => $data['param_3'],
+                'no_param_4' => $data['param_4'],
+                'no_param_5' => $data['param_5'],
+                'tanggal_survey' => date("Y-m-d")
+            ]);
+        }
+
+
+        return redirect()->route('user.survei-sukses',$data);
     }
 }

@@ -30,4 +30,5 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/hapus/{NIP}',[AdminController::class, 'hapus']);
     Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
     Route::get('/user/survei/{step}',[UserController::class, 'survei'])->name('user.survei');
+    Route::view('/user/survei-sukses', 'pegawai.sukses')->name('user.survei-sukses');
 });

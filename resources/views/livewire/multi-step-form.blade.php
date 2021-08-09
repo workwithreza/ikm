@@ -18,7 +18,7 @@
         $i = 1;
     @endphp
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form wire:submit.prevent="saveToDB">
 
         {{ csrf_field() }}
 
@@ -937,7 +937,7 @@
             @endif
 
             @if($currentStep == 16)
-                <button type="button" class="btn btn-md btn-primary">Submit</button>
+                <button type="submit" class="btn btn-md btn-primary">Submit</button>
             @endif
         </div>
 
