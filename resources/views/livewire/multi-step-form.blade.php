@@ -978,21 +978,39 @@
 
 
     @if ($currentStep == 14)
-        document.getElementById("pertanyaan-c1-2").style.display = "none";
-        document.getElementById("pertanyaan-c2-2").style.display = "none";
-        document.getElementById("pertanyaan-c3-2").style.display = "none";
+        @if ($c1_1 == 0)
+            document.getElementById("pertanyaan-c1-2").style.display = "none";
+        @endif
+        @if ($c2_1 == 0)
+            document.getElementById("pertanyaan-c2-2").style.display = "none";
+        @endif
+        @if ($c3_1 == 0)
+            document.getElementById("pertanyaan-c3-2").style.display = "none";
+        @endif
     @endif
 
     @if ($currentStep == 15)
-        document.getElementById("pertanyaan-d1-2").style.display = "none";
-        document.getElementById("pertanyaan-d2-2").style.display = "none";
-        document.getElementById("pertanyaan-d3-2").style.display = "none";
-        document.getElementById("pertanyaan-d4-2").style.display = "none";
+        @if ($d1_1 == 0)
+            document.getElementById("pertanyaan-d1-2").style.display = "none";
+        @endif
+        @if ($d2_1 == 0)
+            document.getElementById("pertanyaan-d2-2").style.display = "none";
+        @endif
+        @if ($d3_1 == 0)
+            document.getElementById("pertanyaan-d3-2").style.display = "none";
+        @endif
+        @if ($d4_1 == 0)
+            document.getElementById("pertanyaan-d4-2").style.display = "none";
+        @endif
     @endif
 
     @if ($currentStep == 16)
-        document.getElementById("pertanyaan-e1-2").style.display = "none";
-        document.getElementById("pertanyaan-e2-2").style.display = "none";
+        @if ($e1_1 == 0)
+            document.getElementById("pertanyaan-e1-2").style.display = "none";
+        @endif
+        @if ($e2_1 == 0)
+            document.getElementById("pertanyaan-e2-2").style.display = "none";
+        @endif
     @endif
 
     $(document).ready(function(){

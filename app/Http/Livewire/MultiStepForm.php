@@ -99,14 +99,14 @@ class MultiStepForm extends Component{
                 $this->b4_1 = session('Step'.$step)['b4_1'];
                 $this->b4_2 = session('Step'.$step)['b4_2'];
             }
-        }else if(session()->has('Step14')){
+        }else if($step == 14 && session()->has('Step14')){
             $this->c1_1 = session('Step14')['c1_1'];
             $this->c1_2 = session('Step14')['c1_2'];
             $this->c2_1 = session('Step14')['c2_1'];
             $this->c2_2 = session('Step14')['c2_2'];
             $this->c3_1 = session('Step14')['c3_1'];
             $this->c3_2 = session('Step14')['c3_2'];
-        }else if(session()->has('Step15')){
+        }else if($step == 15 && session()->has('Step15')){
             $this->d1_1 = session('Step15')['d1_1'];
             $this->d1_2 = session('Step15')['d1_2'];
             $this->d2_1 = session('Step15')['d2_1'];
@@ -115,7 +115,7 @@ class MultiStepForm extends Component{
             $this->d3_2 = session('Step15')['d3_2'];
             $this->d4_1 = session('Step15')['d4_1'];
             $this->d4_2 = session('Step15')['d4_2'];
-        }else if(session()->has('Step16')){
+        }else if($step == 16 && session()->has('Step16')){
             $this->e1_1 = session('Step16')['e1_1'];
             $this->e1_2 = session('Step16')['e1_2'];
             $this->e2_1 = session('Step16')['e2_1'];
@@ -225,46 +225,52 @@ class MultiStepForm extends Component{
 
         //Insert to Responden
         DB::table('responden')->insert([
-            'nama_responden' => "Asep",
-            'usia_responden' => 30,
-            'jenis_kelamin' => 'Laki-Laki',
-            'kode' => '32.04.28'
+            'nama_responden' => session('Step1')['nama_responden'],
+            'usia_responden' => session('Step1')['usia'],
+            'jabatan_responden' => session('Step1')['jabatan'],
+            'jenis_kelamin' => session('Step1')['gender'],
+            'kode' => session('Step1')['desa']
         ]);
-        $no = DB::table('responden')->select('no_urut')->latest('no_urut')->first()->no_urut ?? 0;
+        $no = DB::table('responden')->select('no_responden')->latest('no_responden')->first()->no_responden ?? 0;
         $data['responden'] = $no;
+
+        //Updating Column Wilayah
+        DB::table('wilayah')
+            ->where('kode',session('Step1')['desa'])
+            ->update(['no_responden'=>$data['responden']]);
 
         //Insert to Param 3
         DB::table('param_3')->insert([
-                'c1_1' => 1,
-                'c1_2' => 0,
-                'c2_1' => 1,
-                'c2_2' => 1,
-                'c3_1' => 0,
-                'c3_2' => 0
+                'c1_1' => session('Step14')['c1_1'],
+                'c1_2' => session('Step14')['c1_2'] ?? 0,
+                'c2_1' => session('Step14')['c2_1'],
+                'c2_2' => session('Step14')['c2_2'] ?? 0,
+                'c3_1' => session('Step14')['c3_1'],
+                'c3_2' => session('Step14')['c3_2'] ?? 0
         ]);
         $no = DB::table('param_3')->select('no_param_3')->latest('no_param_3')->first()->no_param_3 ?? 0;
         $data['param_3'] = $no;
 
         //Insert to Param 4
         DB::table('param_4')->insert([
-                'd1_1' => 1,
-                'd1_2' => 1,
-                'd2_1' => 0,
-                'd2_2' => 0,
-                'd3_1' => 1,
-                'd3_2' => 0,
-                'd4_1' => 1,
-                'd4_2' => 1
+                'd1_1' => session('Step15')['d1_1'],
+                'd1_2' => session('Step15')['d1_2'] ?? 0,
+                'd2_1' => session('Step15')['d2_1'],
+                'd2_2' => session('Step15')['d2_2'] ?? 0,
+                'd3_1' => session('Step15')['d3_1'],
+                'd3_2' => session('Step15')['d3_2'] ?? 0,
+                'd4_1' => session('Step15')['d4_1'],
+                'd4_2' => session('Step15')['d4_2'] ?? 0
         ]);
         $no = DB::table('param_4')->select('no_param_4')->latest('no_param_4')->first()->no_param_4 ?? 0;
         $data['param_4'] = $no;
 
         //Insert to Param 5
         DB::table('param_5')->insert([
-                'e1_1' => 1,
-                'e1_2' => 1,
-                'e2_1' => 1,
-                'e2_2' => 1
+                'e1_1' => session('Step16')['e1_1'],
+                'e1_2' => session('Step16')['e1_2'] ?? 0,
+                'e2_1' => session('Step16')['e2_1'],
+                'e2_2' => session('Step16')['e2_2'] ?? 0
         ]);
         $no = DB::table('param_5')->select('no_param_5')->latest('no_param_5')->first()->no_param_5 ?? 0;
         $data['param_5'] = $no;
@@ -272,30 +278,30 @@ class MultiStepForm extends Component{
         for($i = 1; $i <= 12; $i++){
             //Insert to Param 1
             DB::table('param_1')->insert([
-                'a1_1' => 1,
-                'a1_2' => 0,
-                'a2_1' => 1,
-                'a2_2' => 1,
-                'a3_1' => 0,
-                'a3_2' => 0,
-                'a4_1' => 1,
-                'a4_2' => 0,
-                'a5_1' => 0,
-                'a5_2' => 0
+                'a1_1' => session('Step'.$i+1)['a1_1'],
+                'a1_2' => session('Step'.$i+1)['a1_2'] ?? 0,
+                'a2_1' => session('Step'.$i+1)['a2_1'],
+                'a2_2' => session('Step'.$i+1)['a2_2'] ?? 0,
+                'a3_1' => session('Step'.$i+1)['a3_1'],
+                'a3_2' => session('Step'.$i+1)['a3_2'] ?? 0,
+                'a4_1' => session('Step'.$i+1)['a4_1'],
+                'a4_2' => session('Step'.$i+1)['a4_2'] ?? 0,
+                'a5_1' => session('Step'.$i+1)['a5_1'],
+                'a5_2' => session('Step'.$i+1)['a5_2'] ?? 0
             ]);
             $no = DB::table('param_1')->select('no_param_1')->latest('no_param_1')->first()->no_param_1 ?? 0;
             $data['param_1_'.$i] = $no;
 
             //Insert to Param 2
             DB::table('param_2')->insert([
-                'b1_1' => 0,
-                'b1_2' => 0,
-                'b2_1' => 1,
-                'b2_2' => 0,
-                'b3_1' => 1,
-                'b3_2' => 1,
-                'b4_1' => 1,
-                'b4_2' => 1
+                'b1_1' => session('Step'.$i+1)['b1_1'],
+                'b1_2' => session('Step'.$i+1)['b1_2'] ?? 0,
+                'b2_1' => session('Step'.$i+1)['b2_1'],
+                'b2_2' => session('Step'.$i+1)['b2_2'] ?? 0,
+                'b3_1' => session('Step'.$i+1)['b3_1'],
+                'b3_2' => session('Step'.$i+1)['b3_2'] ?? 0,
+                'b4_1' => session('Step'.$i+1)['b4_1'],
+                'b4_2' => session('Step'.$i+1)['b4_2'] ?? 0
             ]);
             $no = DB::table('param_2')->select('no_param_2')->latest('no_param_2')->first()->no_param_2 ?? 0;
             $data['param_2_'.$i] = $no;
@@ -312,15 +318,19 @@ class MultiStepForm extends Component{
             //Insert to Survey
             DB::table('survey')->insert([
                 'NIP' => session('PegawaiLoged')->NIP,
-                'no_urut' => $data['responden'],
+                'no_responden' => $data['responden'],
                 'no_param_1_2' => $data['param_1_2_'.$i],
                 'no_param_3' => $data['param_3'],
                 'no_param_4' => $data['param_4'],
                 'no_param_5' => $data['param_5'],
                 'tanggal_survey' => date("Y-m-d")
             ]);
+            session()->pull('Step'.$i+1);
         }
-
+        session()->pull('Step1');
+        session()->pull('Step14');
+        session()->pull('Step15');
+        session()->pull('Step16');
 
         return redirect()->route('user.survei-sukses',$data);
     }
