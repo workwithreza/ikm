@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <div class="navigation">
                 <a href="dashboard" class="d-flex" style="margin-bottom: -20px;">
@@ -36,16 +36,19 @@
         </div>
     </nav>
 
-    <div class="content-wrapper mt-3">
+    <div class="content-wrapper">
         <div class="container">
-            <div class="content">
-                <div class="header-content pt-4">
-                    <h1>Selamat Datang, {{ $akun->nama_pegawai }}!</h1>
+            <div class="d-flex justify-content-center">
+                <div class="left-content">
+                    <div class="content d-flex flex-column justify-content-center vh-100">
+                        <h3>Indeks Kesiapsiagaan Masyarakat</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi adipisci quod, labore facere error autem, quidem cupiditate inventore doloribus ea, dolor porro aliquid neque blanditiis possimus eaque mollitia explicabo iusto?</p>
+                        <div class="d-flex flex-row justify-content-around">
+                            <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a> <a href="{{ route('user.lihat-survei') }}" class="btn-detail">Lihat Survey</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="body-content mt-3">
-                    <h5>Mulai lakukan <a href="{{ route('user.survei',1) }}" class="btn-custom">survey</a></h5>
-                </div>
-                <div class="footer-content">
+                <div class="right-content mt-5">
                     <img src="{{ asset('image/image_dashboard_user.jpg') }}" alt="survey logo" class="logo">
                 </div>
             </div>

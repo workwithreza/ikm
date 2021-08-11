@@ -31,4 +31,6 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
     Route::get('/user/survei/{step}',[UserController::class, 'survei'])->name('user.survei');
     Route::view('/user/survei-sukses', 'pegawai.sukses')->name('user.survei-sukses');
+    Route::get('/user/lihat-survei',[UserController::class, 'lihat'])->name('user.lihat-survei');
+    Route::get('/user/detail-survei/{no_responden}',[UserController::class, 'detail'])->name('user.detail-survei');
 });

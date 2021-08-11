@@ -6,28 +6,37 @@ a{
     margin-left: auto;
 }
 
-.content-wrapper{
-    display: flex;
-    justify-content: flex-start;
-    height: 80vh;
-}
-
-.content{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
-}
-
 .logo{
     width: 600px;
 }
 
-.body-content{
-    z-index: 1;
+.btn-survey, .btn-detail{
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
 }
 
+.btn-survey{
+    background-color: rgb(53, 86, 175);
+}
+
+.btn-detail{
+    background-color: rgb(139, 32, 32);
+}
+
+.btn-survey:hover, .btn-detail:hover{
+    color: white;
+}
+
+.content h3, p{
+    margin-bottom: 20px;
+}
+
+.content div{
+    margin-top: 30px;
+}
+
+/*
 .btn-custom{
     background-color: rgba(0,120,190,0.8);
     border-radius: 10px;
@@ -41,10 +50,7 @@ a{
     background-color: white;
     color: rgba(0,120,190,0.8);
 }
-
-.footer-content{
-    margin-top: -50px;
-}
+*/
 
 .navigation{
     border-bottom: 1px solid black;
