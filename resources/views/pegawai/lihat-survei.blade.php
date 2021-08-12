@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <div class="navigation">
-                <a href="dashboard" class="d-flex" style="margin-bottom: -20px;">
+                <a href="{{ route('user.dashboard') }}" class="d-flex" style="margin-bottom: -20px;">
                     <img src="{{ asset('image/BPBD.png') }}" style="margin-right: 10px;" width="40" height="40">
                     <p class="navbar-brand">BPBD | JABAR</p>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,14 @@
             </div>
         </div>
     </nav>
+
+    @if (session('sukses'))
+    <div class="container">
+        <div class="alert alert-success text-center">
+            {{ session('sukses') }}
+        </div>
+    </div>
+    @endif
 
     <div class="container">
         <table id="example" class="table table-striped" style="width:100%">
@@ -69,9 +77,11 @@
                                 <a href="{{ route('user.detail-survei',$l->no_responden) }}" class="btn btn-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6.5c3.79 0 7.17 2.13 8.82 5.5-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12C4.83 8.63 8.21 6.5 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z"/></svg>
                                 </a>
-                                <a href="" class="btn btn-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
-                                </a>
+                                @if ($akun->is_admin === 1)
+                                    <a href="{{ route('user.hapus-survei',$l->no_responden) }}" class="btn btn-danger">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+                                    </a>
+                                @endif
                             </div>
                         </td>
                     </tr>

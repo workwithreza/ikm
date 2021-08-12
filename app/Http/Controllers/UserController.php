@@ -72,6 +72,58 @@ class UserController extends Controller{
         return view('pegawai.detail-survei',$data);
     }
 
+    public function hapus($no_responden){
+        //Get All Number
+        $no_survey = DB::table('survey')->select('no')->where('no_responden','=',$no_responden)->get();
+        $no_param_3 = DB::table('survey')->select('no_param_3')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_3;
+        $no_param_4 = DB::table('survey')->select('no_param_4')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_4;
+        $no_param_5 = DB::table('survey')->select('no_param_5')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_5;
+        $no_param_1_2 = DB::table('survey')->select('no_param_1_2')->where('no_responden','=',$no_responden)->get();
+
+        foreach($no_survey as $key => $value){
+            //Delete Survey
+            DB::table('survey')->where('no','=',$value->no)->delete();
+        }
+
+        //Delete Param 3
+        DB::table('param_3')->where('no_param_3','=',$no_param_3)->delete();
+
+        //Delete Param 4
+        DB::table('param_4')->where('no_param_4','=',$no_param_4)->delete();
+
+        //Delete Param 5
+        DB::table('param_5')->where('no_param_5','=',$no_param_5)->delete();
+
+        //Delete Param 1 2 dan Survey
+        foreach($no_param_1_2 as $key => $value){
+            $no_param_1 = DB::table('param_1_2')->select('no_param_1')->where('no_param_1_2','=',$value->no_param_1_2)->first()->no_param_1;
+            $no_param_2 = DB::table('param_1_2')->select('no_param_2')->where('no_param_1_2','=',$value->no_param_1_2)->first()->no_param_2;
+
+            //Delete Param_1_2
+            DB::table('param_1_2')->where('no_param_1_2','=',$value->no_param_1_2)->delete();
+
+            //Delete Param 1
+            DB::table('param_1')->where('no_param_1','=',$no_param_1)->delete();
+
+            //Delete Param 2
+            DB::table('param_2')->where('no_param_2','=',$no_param_2)->delete();
+        }
+
+        //Delete Responden
+        //Get kode from responden
+        $kode = DB::table('responden')->where('no_responden','=',$no_responden)->first()->kode;
+        $wilayah = DB::table('wilayah')->where('kode','=',$kode)->first()->nama;
+
+        //Updating Foreign Key to NULL
+        DB::table('responden')->where('no_responden','=',$no_responden)->update(['kode' => NULL]);
+        DB::table('wilayah')->where('kode','=',$kode)->update(['no_responden' => NULL]);
+
+        //Deleting Responden
+        DB::table('responden')->where('no_responden','=',$no_responden)->delete();
+
+        return back()->with('sukses','Berhasil Hapus Survey di Wilayah '.$wilayah.' !');
+    }
+
     public function logout(){
         if(session()->has('PegawaiLoged')){
             session()->pull('PegawaiLoged');

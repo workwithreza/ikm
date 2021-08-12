@@ -25,7 +25,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/', [MainController::class, 'login'])->name('login');
     Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/akun',[AdminController::class, 'akun'])->name('admin.akun');
-    Route::get('/user/dashboard',[UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('/user',[UserController::class, 'dashboard'])->name('user.dashboard');
     Route::post('/admin/tambah_akun',[AdminController::class, 'tambah'])->name('admin.tambah');
     Route::get('/admin/hapus/{NIP}',[AdminController::class, 'hapus']);
     Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
@@ -33,4 +33,5 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::view('/user/survei-sukses', 'pegawai.sukses')->name('user.survei-sukses');
     Route::get('/user/lihat-survei',[UserController::class, 'lihat'])->name('user.lihat-survei');
     Route::get('/user/detail-survei/{no_responden}',[UserController::class, 'detail'])->name('user.detail-survei');
+    Route::get('/user/hapus/{no_responden}',[UserController::class, 'hapus'])->name('user.hapus-survei');
 });

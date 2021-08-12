@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <div class="navigation">
-                <a href="dashboard" class="d-flex" style="margin-bottom: -20px;">
+                <a href="{{ route('user.dashboard') }}" class="d-flex" style="margin-bottom: -20px;">
                     <img src="{{ asset('image/BPBD.png') }}" style="margin-right: 10px;" width="40" height="40">
                     <p class="navbar-brand">BPBD | JABAR</p>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
