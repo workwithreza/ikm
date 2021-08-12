@@ -221,6 +221,13 @@ class MultiStepForm extends Component{
     }
 
     public function saveToDB(){
+        session()->put('Step16',array(
+            "e1_1" => $this->e1_1,
+            "e1_2" => $this->e1_2,
+            "e2_1" => $this->e2_1,
+            "e2_2" => $this->e2_2
+        ));
+
         $data = [];
 
         //Insert to Responden

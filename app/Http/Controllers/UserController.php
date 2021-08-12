@@ -56,13 +56,17 @@ class UserController extends Controller{
         }
 
         $bencana = DB::table('bencana')->get();
+        $responden = DB::table('responden')->join('wilayah','wilayah.kode','=','responden.kode')->where('responden.no_responden','=',$no_responden)->first();
+        $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$no_responden)->first();
 
         $data = array(
             "param_1_2" => $param_1_2,
             "param_3" => $param_3,
             "param_4" => $param_4,
             "param_5" => $param_5,
-            "bencana" => $bencana
+            "bencana" => $bencana,
+            'responden' => $responden,
+            'pegawai' => $pegawai
         );
 
         return view('pegawai.detail-survei',$data);

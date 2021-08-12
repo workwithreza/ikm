@@ -26,6 +26,33 @@
         </a>
     </div>
     <div class="container">
+        <div class="text-center p-5">
+            <h1>Indeks Kesiapsiagaan Masyarakat</h1>
+        </div>
+
+        <div class="header pb-5">
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 15%;">Nama Responden</td>
+                    <td>: {{ $responden->nama_responden }}</td>
+                    <td style="width: 15%;">Nama Surveyor</td>
+                    <td style="width: 20%;">: {{ $pegawai->nama_pegawai }}</td>
+                </tr>
+                <tr>
+                    <td>Jabatan</td>
+                    <td>: {{ $responden->jabatan_responden }}</td>
+                    <td>Wilayah</td>
+                    <td>: {{ $responden->nama }}</td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>: {{ $responden->jenis_kelamin }}</td>
+                    <td>Tanggal Survey</td>
+                    <td>: {{ $pegawai->tanggal_survey }}</td>
+                </tr>
+            </table>
+        </div>
+
         <table class="table table-sm table-bordered">
             <thead>
                 <tr>
@@ -116,28 +143,28 @@
                         <td>{{ $nilai_a3 }}</td>
                         <td>{{ $nilai_a4 }}</td>
                         <td>{{ $nilai_a5 }}</td>
-                        <td>{{ $nilai_indeks_a }}</td>
+                        <td><b>{{ $nilai_indeks_a }}</b></td>
 
                         <td>{{ $nilai_b1 }}</td>
                         <td>{{ $nilai_b2 }}</td>
                         <td>{{ $nilai_b3 }}</td>
                         <td>{{ $nilai_b4 }}</td>
-                        <td>{{ $nilai_indeks_b }}</td>
+                        <td><b>{{ $nilai_indeks_b }}</b></td>
 
                         <td>{{ $nilai_c1 }}</td>
                         <td>{{ $nilai_c2 }}</td>
                         <td>{{ $nilai_c3 }}</td>
-                        <td>{{ $nilai_indeks_c }}</td>
+                        <td><b>{{ $nilai_indeks_c }}</b></td>
 
                         <td>{{ $nilai_d1 }}</td>
                         <td>{{ $nilai_d2 }}</td>
                         <td>{{ $nilai_d3 }}</td>
                         <td>{{ $nilai_d4 }}</td>
-                        <td>{{ $nilai_indeks_d }}</td>
+                        <td><b>{{ $nilai_indeks_d }}</b></td>
 
                         <td>{{ $nilai_e1 }}</td>
                         <td>{{ $nilai_e2 }}</td>
-                        <td>{{ $nilai_indeks_e }}</td>
+                        <td><b>{{ $nilai_indeks_e }}</b></td>
 
                         <td>{{ $nilai_indeks_kapasitas }}</td>
                         <td>{{ $nilai_indeks_kapasitas >= 0.67 && $nilai_indeks_kapasitas <= 1 ? "Tinggi" : ($nilai_indeks_kapasitas >= 0.33 && $nilai_indeks_kapasitas < 0.67 ? "Sedang" : "Rendah") }}</td>
