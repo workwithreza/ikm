@@ -18,7 +18,7 @@ a, a:hover{
     color: black;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.9);
     z-index: 1;
-    width: 25%;
+    width: 32.5%;
     position: relative;
     height: 94vh;
     border-radius: 20px;
@@ -51,4 +51,28 @@ li{
 
 .content-wrapper{
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.box{
+    background-color: #2C394B;
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+    margin-right: 20px;
+    max-width: 25%;
+    width: 100%;
+}
+
+.logo img{
+    filter: invert(100%)
+}
+
+.content{
+    padding-left: 15px;
 }

@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
     public function dashboard(){
-        $data = array("akun" => session('PegawaiLoged'));
+        $data = array(
+            "akun" => session('PegawaiLoged'),
+            "jumlah_pegawai" => DB::table('pegawais')->count(),
+            'total_survey' => DB::table('survey')->distinct('no_param_3')->count()
+        );
         return view('admin.dashboard', $data);
     }
 

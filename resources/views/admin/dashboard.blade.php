@@ -40,7 +40,33 @@
             </div>
 
             <div class="content-wrapper">
-                <h1>test</h1>
+                <div class="box d-flex justify-content-center align-items-center">
+                    <div class="logo">
+                        <img src="{{ asset('image/man-user.png') }}" alt="Pegawai" width="30">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Jumlah Pegawai
+                        </div>
+                        <div class="body">
+                            {{ $jumlah_pegawai }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box d-flex justify-content-center align-items-center">
+                    <div class="logo">
+                        <img src="{{ asset('image/list.png') }}" alt="Survey" width="30">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Total Survey
+                        </div>
+                        <div class="body">
+                            {{ $total_survey }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
