@@ -26,7 +26,10 @@
 <body class="d-flex justify-content-center align-items-center vh-100 bg-dark">
     <div class="box">
         <div class="box-header">
-            <img src="image/BPBD.png" alt="Logo BPBD" width="100">
+            <div class="logo">
+                <img src="image/BPBD.png" alt="Logo BPBD" width="100">
+                <img src="image/jabar.png" alt="Logo JABAR" width="150">
+            </div>
             <h1>Sign In</h1>
         </div>
         <div class="box-body">

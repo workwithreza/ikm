@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pegawai | Detail Survei</title>
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
+    <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
     <style>
         th{
             vertical-align: middle;
@@ -42,7 +43,7 @@
                     <td>Jabatan</td>
                     <td>: {{ $responden->jabatan_responden }}</td>
                     <td>Wilayah</td>
-                    <td>: {{ $responden->nama }}</td>
+                    <td>: {{ $responden->nama }}, {{ $wilayah['kecamatan']->nama }}, {{ $wilayah['kota']->nama }}, {{ $wilayah['provinsi']->nama }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
@@ -53,7 +54,7 @@
             </table>
         </div>
 
-        <table class="table table-sm table-bordered">
+        <table class="table table-sm table-bordered mb-5">
             <thead>
                 <tr>
                     <th rowspan="2">No</th>
@@ -98,27 +99,75 @@
             </thead>
             <tbody>
                 @php
+                    //Untuk Rata rata A
+                    $avg_a1 = 0;
+                    $avg_a2 = 0;
+                    $avg_a3 = 0;
+                    $avg_a4 = 0;
+                    $avg_a5 = 0;
+                    $avg_indeks_a = 0;
+
+                    //Untuk Rata rata B
+                    $avg_b1 = 0;
+                    $avg_b2 = 0;
+                    $avg_b3 = 0;
+                    $avg_b4 = 0;
+                    $avg_indeks_b = 0;
+
+                    //Untuk Rata rata C
+                    $avg_c1 = 0;
+                    $avg_c2 = 0;
+                    $avg_c3 = 0;
+                    $avg_indeks_c = 0;
+
+                    //Untuk Rata rata D
+                    $avg_d1 = 0;
+                    $avg_d2 = 0;
+                    $avg_d3 = 0;
+                    $avg_d4 = 0;
+                    $avg_indeks_d = 0;
+
+                    //Untuk Rata rata E
+                    $avg_e1 = 0;
+                    $avg_e2 = 0;
+                    $avg_indeks_e = 0;
+
+                    //Untuk Rata Rata Indeks Kapasitas
+                    $avg_indeks_kapasitas = 0;
+
                     //Nilai C
                     $nilai_c1 = ($param_3[0]->c1_1 + $param_3[0]->c1_2)/2;
                     $nilai_c2 = ($param_3[0]->c2_1 + $param_3[0]->c2_2)/2;
                     $nilai_c3 = ($param_3[0]->c3_1 + $param_3[0]->c3_2)/2;
                     $nilai_indeks_c = ($nilai_c1 * 0.40) + ($nilai_c2 * 0.35) + ($nilai_c3 * 0.25);
+                    $avg_c1 = ($nilai_c1 * 12) / 12;
+                    $avg_c2 = ($nilai_c2 * 12) / 12;
+                    $avg_c3 = ($nilai_c3 * 12) / 12;
+                    $avg_indeks_c = ($nilai_indeks_c * 12) / 12;
 
                     //Nilai D
                     $nilai_d1 = ($param_4[0]->d1_1 + $param_4[0]->d1_2)/2;
                     $nilai_d2 = ($param_4[0]->d2_1 + $param_4[0]->d2_2)/2;
                     $nilai_d3 = ($param_4[0]->d3_1 + $param_4[0]->d3_2)/2;
                     $nilai_d4 = ($param_4[0]->d4_1 + $param_4[0]->d4_2)/2;
-                    $nilai_indeks_d = ($nilai_d1 * 0.25) + ($nilai_d2 * 0.25) + ($nilai_d3 * 0.25) * ($nilai_d4 * 0.25);
+                    $nilai_indeks_d = ($nilai_d1 * 0.25) + ($nilai_d2 * 0.25) + ($nilai_d3 * 0.20) + ($nilai_d4 * 0.30);
+                    $avg_d1 = ($nilai_d1 * 12) / 12;
+                    $avg_d2 = ($nilai_d2 * 12) / 12;
+                    $avg_d3 = ($nilai_d3 * 12) / 12;
+                    $avg_d4 = ($nilai_d4 * 12) / 12;
+                    $avg_indeks_d = ($nilai_indeks_d * 12) / 12;
 
                     //Nilai E
                     $nilai_e1 = ($param_5[0]->e1_1 + $param_5[0]->e1_2)/2;
                     $nilai_e2 = ($param_5[0]->e2_1 + $param_5[0]->e2_2)/2;
                     $nilai_indeks_e = ($nilai_e1 * 0.65) + ($nilai_e2 * 0.35);
+                    $avg_e1 = ($nilai_e1 * 12) / 12;
+                    $avg_e2 = ($nilai_e2 * 12) / 12;
+                    $avg_indeks_e = ($nilai_indeks_e * 12) / 12;
                 @endphp
                 @for ($i=1; $i<=12; $i++)
                     <tr>
-                        <td>{{ $i }}</td>
+                        <td class="text-center">{{ $i }}</td>
                         <td>{{ $bencana[$i-1]->nama_bencana }}</td>
                         @php
                             //Nilai A
@@ -128,6 +177,12 @@
                             $nilai_a4 = ($param_1_2[$i]['param_1'][0]->a4_1 + $param_1_2[$i]['param_1'][0]->a4_2)/2;
                             $nilai_a5 = ($param_1_2[$i]['param_1'][0]->a5_1 + $param_1_2[$i]['param_1'][0]->a5_2)/2;
                             $nilai_indeks_a = ($nilai_a1 * 0.10) + ($nilai_a2 * 0.15) + ($nilai_a3 * 0.25) + ($nilai_a4 * 0.20) + ($nilai_a5 * 0.30);
+                            $avg_a1 += $nilai_a1;
+                            $avg_a2 += $nilai_a2;
+                            $avg_a3 += $nilai_a3;
+                            $avg_a4 += $nilai_a4;
+                            $avg_a5 += $nilai_a5;
+                            $avg_indeks_a += $nilai_indeks_a;
 
                             //Nilai B
                             $nilai_b1 = ($param_1_2[$i]['param_2'][0]->b1_1 + $param_1_2[$i]['param_2'][0]->b1_2)/2;
@@ -136,40 +191,77 @@
                             $nilai_b4 = ($param_1_2[$i]['param_2'][0]->b4_1 + $param_1_2[$i]['param_2'][0]->b4_2)/2;
                             $nilai_indeks_b = ($nilai_b1 * 0.35) + ($nilai_b2 * 0.30) + ($nilai_b3 * 0.20) + ($nilai_b4 * 0.15);
 
+                            $avg_b1 += $nilai_b1;
+                            $avg_b2 += $nilai_b2;
+                            $avg_b3 += $nilai_b3;
+                            $avg_b4 += $nilai_b4;
+                            $avg_indeks_b += $nilai_indeks_b;
+
                             $nilai_indeks_kapasitas = ($nilai_indeks_a + $nilai_indeks_b + $nilai_indeks_c + $nilai_indeks_d + $nilai_indeks_e)/5;
+
+                            $avg_indeks_kapasitas += $nilai_indeks_kapasitas;
                         @endphp
-                        <td>{{ $nilai_a1 }}</td>
-                        <td>{{ $nilai_a2 }}</td>
-                        <td>{{ $nilai_a3 }}</td>
-                        <td>{{ $nilai_a4 }}</td>
-                        <td>{{ $nilai_a5 }}</td>
-                        <td><b>{{ $nilai_indeks_a }}</b></td>
 
-                        <td>{{ $nilai_b1 }}</td>
-                        <td>{{ $nilai_b2 }}</td>
-                        <td>{{ $nilai_b3 }}</td>
-                        <td>{{ $nilai_b4 }}</td>
-                        <td><b>{{ $nilai_indeks_b }}</b></td>
+                        <td class="text-center">{{ $nilai_a1 }}</td>
+                        <td class="text-center">{{ $nilai_a2 }}</td>
+                        <td class="text-center">{{ $nilai_a3 }}</td>
+                        <td class="text-center">{{ $nilai_a4 }}</td>
+                        <td class="text-center">{{ $nilai_a5 }}</td>
+                        <td class="text-center"><b>{{ $nilai_indeks_a }}</b></td>
 
-                        <td>{{ $nilai_c1 }}</td>
-                        <td>{{ $nilai_c2 }}</td>
-                        <td>{{ $nilai_c3 }}</td>
-                        <td><b>{{ $nilai_indeks_c }}</b></td>
+                        <td class="text-center">{{ $nilai_b1 }}</td>
+                        <td class="text-center">{{ $nilai_b2 }}</td>
+                        <td class="text-center">{{ $nilai_b3 }}</td>
+                        <td class="text-center">{{ $nilai_b4 }}</td>
+                        <td class="text-center"><b>{{ $nilai_indeks_b }}</b></td>
 
-                        <td>{{ $nilai_d1 }}</td>
-                        <td>{{ $nilai_d2 }}</td>
-                        <td>{{ $nilai_d3 }}</td>
-                        <td>{{ $nilai_d4 }}</td>
-                        <td><b>{{ $nilai_indeks_d }}</b></td>
+                        <td class="text-center">{{ $nilai_c1 }}</td>
+                        <td class="text-center">{{ $nilai_c2 }}</td>
+                        <td class="text-center">{{ $nilai_c3 }}</td>
+                        <td class="text-center"><b>{{ $nilai_indeks_c }}</b></td>
 
-                        <td>{{ $nilai_e1 }}</td>
-                        <td>{{ $nilai_e2 }}</td>
-                        <td><b>{{ $nilai_indeks_e }}</b></td>
+                        <td class="text-center">{{ $nilai_d1 }}</td>
+                        <td class="text-center">{{ $nilai_d2 }}</td>
+                        <td class="text-center">{{ $nilai_d3 }}</td>
+                        <td class="text-center">{{ $nilai_d4 }}</td>
+                        <td class="text-center"><b>{{ $nilai_indeks_d }}</b></td>
 
-                        <td>{{ $nilai_indeks_kapasitas }}</td>
-                        <td>{{ $nilai_indeks_kapasitas >= 0.67 && $nilai_indeks_kapasitas <= 1 ? "Tinggi" : ($nilai_indeks_kapasitas >= 0.33 && $nilai_indeks_kapasitas < 0.67 ? "Sedang" : "Rendah") }}</td>
+                        <td class="text-center">{{ $nilai_e1 }}</td>
+                        <td class="text-center">{{ $nilai_e2 }}</td>
+                        <td class="text-center"><b>{{ $nilai_indeks_e }}</b></td>
+
+                        <td class="text-center">{{ $nilai_indeks_kapasitas }}</td>
+                        <td class="text-center">{{ $nilai_indeks_kapasitas > 0.8 && $nilai_indeks_kapasitas <= 1 ? "Tinggi" : ($nilai_indeks_kapasitas > 0.4 && $nilai_indeks_kapasitas <= 0.8 ? "Sedang" : "Rendah") }}</td>
                     </tr>
                 @endfor
+                <tr class="bg-dark text-light text-center">
+                    <td colspan="2">Indeks Multi Bencana</td>
+                    <td>{{ round($avg_a1/12,2) }}</td>
+                    <td>{{ round($avg_a2/12,2) }}</td>
+                    <td>{{ round($avg_a3/12,2) }}</td>
+                    <td>{{ round($avg_a4/12,2) }}</td>
+                    <td>{{ round($avg_a5/12,2) }}</td>
+                    <td>{{ round($avg_indeks_a/12,2) }}</td>
+                    <td>{{ round($avg_b1/12,2) }}</td>
+                    <td>{{ round($avg_b2/12,2) }}</td>
+                    <td>{{ round($avg_b3/12,2) }}</td>
+                    <td>{{ round($avg_b4/12,2) }}</td>
+                    <td>{{ round($avg_indeks_b/12,2) }}</td>
+                    <td>{{ $avg_c1 }}</td>
+                    <td>{{ $avg_c2 }}</td>
+                    <td>{{ $avg_c3 }}</td>
+                    <td>{{ $avg_indeks_c }}</td>
+                    <td>{{ $avg_d1 }}</td>
+                    <td>{{ $avg_d2 }}</td>
+                    <td>{{ $avg_d3 }}</td>
+                    <td>{{ $avg_d4 }}</td>
+                    <td>{{ $avg_indeks_d }}</td>
+                    <td>{{ $avg_e1 }}</td>
+                    <td>{{ $avg_e2 }}</td>
+                    <td>{{ $avg_indeks_e }}</td>
+                    <td>{{ round($avg_indeks_kapasitas/12,2) }}</td>
+                    <td>{{ $avg_indeks_kapasitas/12 >= 0 && $avg_indeks_kapasitas/12 <= 0.4 ? "Rendah" : ($avg_indeks_kapasitas/12 > 0.4 && $avg_indeks_kapasitas/12 <= 0.8 ? "Sedang" : "Tinggi") }}</td>
+                </tr>
             </tbody>
         </table>
     </div>

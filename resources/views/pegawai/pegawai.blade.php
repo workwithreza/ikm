@@ -14,7 +14,8 @@
         <div class="container">
             <div class="navigation">
                 <a href="{{ route('user.dashboard') }}" class="d-flex" style="margin-bottom: -20px;">
-                    <img src="{{ asset('image/BPBD.png') }}" style="margin-right: 10px;" width="40" height="40">
+                    <img src="{{ asset('image/jabar.png') }}" width="60" height="40">
+                    <img src="{{ asset('image/BPBD.png') }}" style="margin-right: 20px;" width="40" height="40">
                     <p class="navbar-brand">BPBD | JABAR</p>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -42,7 +43,6 @@
                 <div class="left-content">
                     <div class="content d-flex flex-column justify-content-center vh-100">
                         <h3>Indeks Kesiapsiagaan Masyarakat</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi adipisci quod, labore facere error autem, quidem cupiditate inventore doloribus ea, dolor porro aliquid neque blanditiis possimus eaque mollitia explicabo iusto?</p>
                         <div class="d-flex flex-row justify-content-around">
                             <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a> <a href="{{ route('user.lihat-survei') }}" class="btn-detail">Lihat Survey</a>
                         </div>

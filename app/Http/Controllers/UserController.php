@@ -59,6 +59,16 @@ class UserController extends Controller{
         $responden = DB::table('responden')->join('wilayah','wilayah.kode','=','responden.kode')->where('responden.no_responden','=',$no_responden)->first();
         $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$no_responden)->first();
 
+        $kode_provinsi = substr($responden->kode,0,2);
+        $kode_kota = substr($responden->kode,0,5);
+        $kode_kecamatan = substr($responden->kode,0,8);
+
+        $wilayah = array(
+            "provinsi" => DB::table('wilayah')->where('kode','=',$kode_provinsi)->first(),
+            "kota" => DB::table('wilayah')->where('kode','=',$kode_kota)->first(),
+            "kecamatan" => DB::table('wilayah')->where('kode','=',$kode_kecamatan)->first()
+        );
+
         $data = array(
             "param_1_2" => $param_1_2,
             "param_3" => $param_3,
@@ -66,7 +76,8 @@ class UserController extends Controller{
             "param_5" => $param_5,
             "bencana" => $bencana,
             'responden' => $responden,
-            'pegawai' => $pegawai
+            'pegawai' => $pegawai,
+            'wilayah' => $wilayah
         );
 
         return view('pegawai.detail-survei',$data);

@@ -77,6 +77,20 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
+                            <label>Provinsi</label>
+                            <select name="kota" id="kota" class="form-control" wire:model="selectedProvinsi">
+                                <option selected value="" disabled>Pilih Provinsi</option>
+                                @foreach ($provincis as $p)
+                                    <option value="{{ $p->kode }}">{{ $p->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
                             <label>Kabupaten/Kota</label>
                             <select name="kota" id="kota" class="form-control" wire:model="selectedKota">
                                 <option selected value="" disabled>Pilih Kota/Kabupaten</option>

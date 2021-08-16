@@ -16,6 +16,11 @@
     text-align: center;
 }
 
+.logo{
+    position: relative;
+    left: 20px;
+}
+
 .box-body input{
     position: relative;
     top: -40px;

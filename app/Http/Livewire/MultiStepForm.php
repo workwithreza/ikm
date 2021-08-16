@@ -54,10 +54,12 @@ class MultiStepForm extends Component{
     public $e2_1;
     public $e2_2;
 
+    public $provincis;
     public $kotas;
     public $kecamatans;
     public $kelurahans;
 
+    public $selectedProvinsi = null;
     public $selectedKota = null;
     public $selectedKecamatan = null;
     public $selectedDesa = null;
@@ -125,8 +127,13 @@ class MultiStepForm extends Component{
     }
 
     public function render(){
+        $this->provincis = DB::table('wilayah')
+            ->whereRaw('kode = "32" OR kode = "19"')
+            ->orderBy('nama','asc')
+            ->get();
+
         $this->kotas = DB::table('wilayah')
-            ->whereRaw('LEFT(kode, "2") = "32" AND CHAR_LENGTH(kode) = 5')
+            ->whereRaw('LEFT(kode, "2") = "'.$this->selectedProvinsi.'" AND CHAR_LENGTH(kode) = 5')
             ->orderBy('nama','asc')
             ->get();
 

@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}">
 </head>
 <body>
-    <div class="header-background">
-
-    </div>
+    <div class="header-background"></div>
     <div class="container-custom">
         <div class="side-nav">
             <div class="side-box">
                 <div class="side-header">
                     <a href="{{ route('admin.dashboard') }}" class="navbar-brand text-center"><p>BPBD | JABAR</p>
-                        <center><img src="{{ asset('image/BPBD.png') }}" style="width:100px;height:100px;"></center>
+                        <center>
+                            <img src="{{ asset('image/jabar.png') }}" style="margin-left:-25px;width:150px;height:100px;">
+                            <img src="{{ asset('image/BPBD.png') }}" style="width:100px;height:100px;">
+                        </center>
                     </a>
                     <p class="m-0 text-center">Selamat Datang!</p>
                     <h3 class="text-center">{{ $akun->nama_pegawai }}</h3>
