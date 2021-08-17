@@ -1,5 +1,7 @@
 <?php
 
+use App\Exports\IKMExport;
+use App\Exports\IKMExportView;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
@@ -34,4 +36,5 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/user/lihat-survei',[UserController::class, 'lihat'])->name('user.lihat-survei');
     Route::get('/user/detail-survei/{no_responden}',[UserController::class, 'detail'])->name('user.detail-survei');
     Route::get('/user/hapus/{no_responden}',[UserController::class, 'hapus'])->name('user.hapus-survei');
+    Route::get('/user/detail-survei/download/{no_responden}',[UserController::class, 'export_excel'])->name("user.download-ikm-excel");
 });

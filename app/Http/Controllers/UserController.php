@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\IKMExportView;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller{
@@ -133,6 +134,20 @@ class UserController extends Controller{
         DB::table('responden')->where('no_responden','=',$no_responden)->delete();
 
         return back()->with('sukses','Berhasil Hapus Survey di Wilayah '.$wilayah.' !');
+    }
+
+    public function export_excel($no_responden){
+        $responden = DB::table('responden')->join('wilayah','wilayah.kode','=','responden.kode')->where('responden.no_responden','=',$no_responden)->first();
+
+        $kode_provinsi = substr($responden->kode,0,2);
+        $kode_kota = substr($responden->kode,0,5);
+        $kode_kecamatan = substr($responden->kode,0,8);
+
+        $provinsi = DB::table('wilayah')->where('kode','=',$kode_provinsi)->first()->nama;
+        $kota = DB::table('wilayah')->where('kode','=',$kode_kota)->first()->nama;
+        $kecamatan = DB::table('wilayah')->where('kode','=',$kode_kecamatan)->first()->nama;
+
+        return Excel::download(new IKMExportView($no_responden), 'ikm_'.$provinsi.'_'.$kota.'_'.$kecamatan.'_'.$responden->nama.'.xlsx');
     }
 
     public function logout(){
