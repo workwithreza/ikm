@@ -27,8 +27,8 @@
     <div class="box">
         <div class="box-header">
             <div class="logo">
-                <img src="image/BPBD.png" alt="Logo BPBD" width="100">
                 <img src="image/jabar.png" alt="Logo JABAR" width="150">
+                <img src="image/BPBD.png" alt="Logo BPBD" width="100">
             </div>
             <h1>Sign In</h1>
         </div>
