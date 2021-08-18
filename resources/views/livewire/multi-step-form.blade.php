@@ -15,6 +15,20 @@
             11 => "Kegagalan Teknologi",
             12 => "Konflik Sosial"
         );
+        $bencana_variable = array(
+            1 => "gempa_bumi",
+            2 => "tsunami",
+            3 => "banjir",
+            4 => "tanah_longsor",
+            5 => "gunung_meletus",
+            6 => "kekeringan",
+            7 => "abrasi",
+            8 => "cuaca_ekstrim",
+            9 => "kebakaran_hutan",
+            10 => "epidemi",
+            11 => "kegagalan_teknologi",
+            12 => "konflik_sosial"
+        );
         $i = 1;
     @endphp
 
@@ -22,16 +36,20 @@
 
         {{ csrf_field() }}
 
+        @php
+            $i = $currentStep;
+        @endphp
+
         {{-- Step 1 : Pengisian Identitas --}}
         @if ($currentStep == 1)
         <div class="card">
-            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Pengisian Identitas</div>
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - Pengisian Identitas</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label>Nama Responden</label>
-                            <input type="text" name="nama" class="form-control" wire:model="nama_responden">
+                            <input type="text" name="nama" class="form-control" wire:model.defer="nama_responden">
                         </div>
                     </div>
                 </div>
@@ -40,7 +58,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Jabatan</label>
-                            <input type="text" name="jabatan" class="form-control" wire:model="jabatan">
+                            <input type="text" name="jabatan" class="form-control" wire:model.defer="jabatan">
                         </div>
                     </div>
                 </div>
@@ -49,7 +67,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Usia</label>
-                            <input type="number" name="nama" class="form-control" wire:model="usia">
+                            <input type="number" name="nama" class="form-control" wire:model.defer="usia">
                         </div>
                     </div>
                 </div>
@@ -59,13 +77,13 @@
                         <div class="form-group">
                             <label>Jenis Kelamin</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jeniskelamin" value="Pria" wire:model="gender">
+                                <input class="form-check-input" type="radio" name="jeniskelamin" value="Pria" wire:model.defer="gender">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Pria
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jeniskelamin" value="Wanita" wire:model="gender">
+                                <input class="form-check-input" type="radio" name="jeniskelamin" value="Wanita" wire:model.defer="gender">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Wanita
                                 </label>
@@ -157,14 +175,34 @@
         </div>
         @endif
 
-        @foreach ($bencana as $key => $value)
+        @if ($currentStep == 2)
+        <div class="card mb-3">
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - Filtering Bencana</div>
+
+            <div class="card-body">
+                @foreach ($bencana as $key => $value)
+                <div class="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" wire:model.defer="{{ $bencana_variable[$key] }}">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ $value }}
+                        </label>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
+
+        @if ($currentStep >= 3 && $currentStep <= 14)
+
         @php
-            $i++;
+            $key = $currentStep - 2;
+            $value = $bencana[$key];
         @endphp
-        @if ($currentStep == $i)
 
         <div class="card">
-            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - {{ $value }}</div>
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - {{ $value }}</div>
             <div class="card-body">
 
                 {{-- Parameter 1 --}}
@@ -534,16 +572,12 @@
             </div>
         </div>
         @endif
-        @endforeach
 
         {{-- Parameter 3 --}}
-        @php
-            $i += 1;
-        @endphp
-        @if ($currentStep == $i)
+        @if ($currentStep == 15)
         <div class="card">
 
-            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Pengaruh Kerentanan Masyarakat Terhadap Upaya Pengurangan Risiko Bencana</div>
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - Pengaruh Kerentanan Masyarakat Terhadap Upaya Pengurangan Risiko Bencana</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c1-1">
                     <div class="title p-1">
@@ -670,14 +704,10 @@
         @endif
 
         {{-- Parameter 4 --}}
-            @php
-                $i += 1;
-            @endphp
-
-        @if ($currentStep == $i)
+        @if ($currentStep == 16)
 
         <div class="card">
-            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Ketidak Tergantungan Masyarakat Terhadap Dukungan Pemerintah</div>
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - Ketidak Tergantungan Masyarakat Terhadap Dukungan Pemerintah</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d1-1">
                     <div class="title p-1">
@@ -844,14 +874,10 @@
         @endif
 
         {{-- Parameter 5 --}}
-            @php
-                $i += 1;
-            @endphp
-
-        @if ($currentStep == $i)
+        @if ($currentStep == 17)
 
         <div class="card">
-            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/16 - Bentuk Partisipasi Masyarakat</div>
+            <div class="card-header bg-secondary text-white">Langkah {{ $i }}/17 - Bentuk Partisipasi Masyarakat</div>
             <div class="card-body">
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-e1-1">
                     <div class="title p-1">
@@ -942,15 +968,15 @@
                 <div></div>
             @endif
 
-            @if($currentStep >= 2 && $currentStep <= 16)
+            @if($currentStep >= 2 && $currentStep <= 17)
                 <button type="button" class="btn btn-md btn-secondary" wire:click="decreaseStep()">Sebelumnya</button>
             @endif
 
-            @if($currentStep >= 1 && $currentStep < 16)
+            @if($currentStep >= 1 && $currentStep < 17)
                 <button type="button" class="btn btn-md btn-success" wire:click="increaseStep()">Selanjutnya</button>
             @endif
 
-            @if($currentStep == 16)
+            @if($currentStep == 17)
                 <button type="submit" class="btn btn-md btn-primary">Submit</button>
             @endif
         </div>
@@ -959,39 +985,39 @@
 </div>
 
 <script>
-    @if ($currentStep > 1 && $currentStep < 14)
+    @if ($currentStep > 2 && $currentStep < 15)
         @if ($a1_1 == 0)
-            document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($a2_1 == 0)
-            document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($a3_1 == 0)
-            document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($a4_1 == 0)
-            document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($a5_1 == 0)
-            document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($b1_1 == 0)
-            document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($b2_1 == 0)
-            document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($b3_1 == 0)
-            document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
         @if ($b4_1 == 0)
-            document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 1 }}).style.display = "none";
+            document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 2 }}).style.display = "none";
         @endif
     @endif
 
 
 
-    @if ($currentStep == 14)
+    @if ($currentStep == 15)
         @if ($c1_1 == 0)
             document.getElementById("pertanyaan-c1-2").style.display = "none";
         @endif
@@ -1003,7 +1029,7 @@
         @endif
     @endif
 
-    @if ($currentStep == 15)
+    @if ($currentStep == 16)
         @if ($d1_1 == 0)
             document.getElementById("pertanyaan-d1-2").style.display = "none";
         @endif
@@ -1018,7 +1044,7 @@
         @endif
     @endif
 
-    @if ($currentStep == 16)
+    @if ($currentStep == 17)
         @if ($e1_1 == 0)
             document.getElementById("pertanyaan-e1-2").style.display = "none";
         @endif

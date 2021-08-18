@@ -8,11 +8,36 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class MultiStepForm extends Component{
+    //Step 1
     public $nama_responden;
     public $usia;
     public $jabatan;
     public $gender;
+    public $provincis;
+    public $kotas;
+    public $kecamatans;
+    public $kelurahans;
 
+    public $selectedProvinsi = null;
+    public $selectedKota = null;
+    public $selectedKecamatan = null;
+    public $selectedDesa = null;
+
+    //Step 2
+    public $gempa_bumi;
+    public $tsunami;
+    public $banjir;
+    public $tanah_longsor;
+    public $gunung_meletus;
+    public $kekeringan;
+    public $abrasi;
+    public $cuaca_ekstrim;
+    public $kebakaran_hutan;
+    public $epidemi;
+    public $kegagalan_teknologi;
+    public $konflik_sosial;
+
+    //Step 3 to 14
     public $a1_1;
     public $a1_2;
     public $a2_1;
@@ -33,6 +58,7 @@ class MultiStepForm extends Component{
     public $b4_1;
     public $b4_2;
 
+    //Step 15
     public $c1_1;
     public $c1_2;
     public $c2_1;
@@ -40,6 +66,7 @@ class MultiStepForm extends Component{
     public $c3_1;
     public $c3_2;
 
+    //Step 16 Variables
     public $d1_1;
     public $d1_2;
     public $d2_1;
@@ -49,21 +76,13 @@ class MultiStepForm extends Component{
     public $d4_1;
     public $d4_2;
 
+    //Step 17 Variables
     public $e1_1;
     public $e1_2;
     public $e2_1;
     public $e2_2;
 
-    public $provincis;
-    public $kotas;
-    public $kecamatans;
-    public $kelurahans;
-
-    public $selectedProvinsi = null;
-    public $selectedKota = null;
-    public $selectedKecamatan = null;
-    public $selectedDesa = null;
-
+    //Global Variables
     public $currentStep = 1;
     public $lastStep = 16;
 
@@ -79,7 +98,20 @@ class MultiStepForm extends Component{
                 $this->selectedKecamatan = session('Step1')['kecamatan'];
                 $this->selectedDesa = session('Step1')['desa'];
             }
-        }else if($step > 1 && $step < 14){
+        }else if($step == 2 && session()->has('Step2')){
+            $this->gempa_bumi = session('Step2')['3'];
+            $this->tsunami = session('Step2')['4'];
+            $this->banjir = session('Step2')['5'];
+            $this->tanah_longsor = session('Step2')['6'];
+            $this->gunung_meletus = session('Step2')['7'];
+            $this->kekeringan = session('Step2')['8'];
+            $this->abrasi = session('Step2')['9'];
+            $this->cuaca_ekstrim = session('Step2')['10'];
+            $this->kebakaran_hutan = session('Step2')['11'];
+            $this->epidemi = session('Step2')['12'];
+            $this->kegagalan_teknologi = session('Step2')['13'];
+            $this->konflik_sosial = session('Step2')['14'];
+        }else if($step > 2 && $step < 15){
             if(session()->has('Step'.$step)){
                 $this->a1_1 = session('Step'.$step)['a1_1'];
                 $this->a1_2 = session('Step'.$step)['a1_2'];
@@ -101,27 +133,27 @@ class MultiStepForm extends Component{
                 $this->b4_1 = session('Step'.$step)['b4_1'];
                 $this->b4_2 = session('Step'.$step)['b4_2'];
             }
-        }else if($step == 14 && session()->has('Step14')){
-            $this->c1_1 = session('Step14')['c1_1'];
-            $this->c1_2 = session('Step14')['c1_2'];
-            $this->c2_1 = session('Step14')['c2_1'];
-            $this->c2_2 = session('Step14')['c2_2'];
-            $this->c3_1 = session('Step14')['c3_1'];
-            $this->c3_2 = session('Step14')['c3_2'];
         }else if($step == 15 && session()->has('Step15')){
-            $this->d1_1 = session('Step15')['d1_1'];
-            $this->d1_2 = session('Step15')['d1_2'];
-            $this->d2_1 = session('Step15')['d2_1'];
-            $this->d2_2 = session('Step15')['d2_2'];
-            $this->d3_1 = session('Step15')['d3_1'];
-            $this->d3_2 = session('Step15')['d3_2'];
-            $this->d4_1 = session('Step15')['d4_1'];
-            $this->d4_2 = session('Step15')['d4_2'];
+            $this->c1_1 = session('Step15')['c1_1'];
+            $this->c1_2 = session('Step15')['c1_2'];
+            $this->c2_1 = session('Step15')['c2_1'];
+            $this->c2_2 = session('Step15')['c2_2'];
+            $this->c3_1 = session('Step15')['c3_1'];
+            $this->c3_2 = session('Step15')['c3_2'];
         }else if($step == 16 && session()->has('Step16')){
-            $this->e1_1 = session('Step16')['e1_1'];
-            $this->e1_2 = session('Step16')['e1_2'];
-            $this->e2_1 = session('Step16')['e2_1'];
-            $this->e2_2 = session('Step16')['e2_2'];
+            $this->d1_1 = session('Step16')['d1_1'];
+            $this->d1_2 = session('Step16')['d1_2'];
+            $this->d2_1 = session('Step16')['d2_1'];
+            $this->d2_2 = session('Step16')['d2_2'];
+            $this->d3_1 = session('Step16')['d3_1'];
+            $this->d3_2 = session('Step16')['d3_2'];
+            $this->d4_1 = session('Step16')['d4_1'];
+            $this->d4_2 = session('Step16')['d4_2'];
+        }else if($step == 17 && session()->has('Step17')){
+            $this->e1_1 = session('Step17')['e1_1'];
+            $this->e1_2 = session('Step17')['e1_2'];
+            $this->e2_1 = session('Step17')['e2_1'];
+            $this->e2_2 = session('Step17')['e2_2'];
         }
         $this->currentStep = $step;
     }
@@ -164,7 +196,22 @@ class MultiStepForm extends Component{
                 "kecamatan" => $this->selectedKecamatan,
                 "desa" => $this->selectedDesa
             ));
-        }else if($this->currentStep > 1 && $this->currentStep < 14){
+        }else if($this->currentStep == 2){
+            session()->put('Step2',array(
+                "3" => $this->gempa_bumi,
+                "4" => $this->tsunami,
+                "5" => $this->banjir,
+                "6" => $this->tanah_longsor,
+                "7" => $this->gunung_meletus,
+                "8" => $this->kekeringan,
+                "9" => $this->abrasi,
+                "10" => $this->cuaca_ekstrim,
+                "11" => $this->kebakaran_hutan,
+                "12" => $this->epidemi,
+                "13" => $this->kegagalan_teknologi,
+                "14" => $this->konflik_sosial
+            ));
+        }else if($this->currentStep > 2 && $this->currentStep < 15){
             session()->put('Step'.$this->currentStep,array(
                 "a1_1" => $this->a1_1,
                 "a1_2" => $this->a1_2,
@@ -185,8 +232,8 @@ class MultiStepForm extends Component{
                 "b4_1" => $this->b4_1,
                 "b4_2" => $this->b4_2
             ));
-        }else if($this->currentStep == 14){
-            session()->put('Step14',array(
+        }else if($this->currentStep == 15){
+            session()->put('Step15',array(
                 "c1_1" => $this->c1_1,
                 "c1_2" => $this->c1_2,
                 "c2_1" => $this->c2_1,
@@ -194,8 +241,8 @@ class MultiStepForm extends Component{
                 "c3_1" => $this->c3_1,
                 "c3_2" => $this->c3_2
             ));
-        }else if($this->currentStep == 15){
-            session()->put('Step15',array(
+        }else if($this->currentStep == 16){
+            session()->put('Step16',array(
                 "d1_1" => $this->d1_1,
                 "d1_2" => $this->d1_2,
                 "d2_1" => $this->d2_1,
@@ -205,8 +252,8 @@ class MultiStepForm extends Component{
                 "d4_1" => $this->d4_1,
                 "d4_2" => $this->d4_2
             ));
-        }else if($this->currentStep == 16){
-            session()->put('Step16',array(
+        }else if($this->currentStep == 17){
+            session()->put('Step17',array(
                 "e1_1" => $this->e1_1,
                 "e1_2" => $this->e1_2,
                 "e2_1" => $this->e2_1,
@@ -218,12 +265,46 @@ class MultiStepForm extends Component{
     public function increaseStep(){
         $this->putSession();
         $this->currentStep += 1;
+        if($this->currentStep > 2 && $this->currentStep < 15){
+            foreach(session('Step2') as $key => $value){
+                if($this->currentStep > 2 && $this->currentStep < 15){
+                    if(session('Step2')[strval($this->currentStep)] != null){
+                        break;
+                    }else{
+                        if($this->currentStep < 15){
+                            $this->currentStep += 1;
+                        }else{
+                            break;
+                        }
+                    }
+                }else{
+                    break;
+                }
+            }
+        }
         return redirect()->route('user.survei',$this->currentStep);
     }
 
     public function decreaseStep(){
         $this->putSession();
         $this->currentStep -= 1;
+        if($this->currentStep > 2 && $this->currentStep < 15){
+            foreach(session('Step2') as $key => $value){
+                if($this->currentStep > 2 && $this->currentStep < 15){
+                    if(session('Step2')[strval($this->currentStep)] != null){
+                        break;
+                    }else{
+                        if($this->currentStep < 15){
+                            $this->currentStep -= 1;
+                        }else{
+                            break;
+                        }
+                    }
+                }else{
+                    break;
+                }
+            }
+        }
         return redirect()->route('user.survei',$this->currentStep);
     }
 
