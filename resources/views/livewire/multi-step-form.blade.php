@@ -50,6 +50,9 @@
                         <div class="form-group">
                             <label>Nama Responden</label>
                             <input type="text" name="nama" class="form-control" wire:model.defer="nama_responden">
+                            <span class="text-danger">@error('nama_responden')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -59,6 +62,9 @@
                         <div class="form-group">
                             <label>Jabatan</label>
                             <input type="text" name="jabatan" class="form-control" wire:model.defer="jabatan">
+                            <span class="text-danger">@error('jabatan')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -67,7 +73,10 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Usia</label>
-                            <input type="number" name="nama" class="form-control" wire:model.defer="usia">
+                            <input type="number" name="usia" class="form-control" wire:model.defer="usia">
+                            <span class="text-danger">@error('usia')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -88,6 +97,9 @@
                                     Wanita
                                 </label>
                             </div>
+                            <span class="text-danger">@error('gender')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -96,12 +108,15 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Provinsi</label>
-                            <select name="kota" id="kota" class="form-control" wire:model="selectedProvinsi">
-                                <option selected value="" disabled>Pilih Provinsi</option>
+                            <select name="provincis" id="provinsi" class="form-control" wire:model="selectedProvinsi">
+                                <option selected value="">Pilih Provinsi</option>
                                 @foreach ($provincis as $p)
                                     <option value="{{ $p->kode }}">{{ $p->nama }}</option>
                                 @endforeach
                             </select>
+                            <span class="text-danger">@error('provincis')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -111,11 +126,14 @@
                         <div class="form-group">
                             <label>Kabupaten/Kota</label>
                             <select name="kota" id="kota" class="form-control" wire:model="selectedKota">
-                                <option selected value="" disabled>Pilih Kota/Kabupaten</option>
+                                <option selected value="">Pilih Kota/Kabupaten</option>
                                 @foreach ($kotas as $d)
                                     <option value="{{ $d->kode }}">{{ $d->nama }}</option>
                                 @endforeach
                             </select>
+                            <span class="text-danger">@error('kotas')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -125,7 +143,7 @@
                         <div class="form-group">
                             <label>Kecamatan</label>
                             <select name="kecamatan" id="kecamatan" class="form-control" wire:model="selectedKecamatan">
-                                <option selected="true" value="" disabled>Pilih Kecamatan</option>
+                                <option selected="true" value="">Pilih Kecamatan</option>
 
                                 @if(!is_null($kecamatans))
 
@@ -136,6 +154,9 @@
                                 @endif
 
                             </select>
+                            <span class="text-danger">@error('kecamatans')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -144,14 +165,17 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Desa</label>
-                            <select name="desa" id="desa" class="form-control input-lg" wire:model="selectedDesa">
-                                <option selected="true" value="" disabled>Pilih Desa</option>
+                            <select name="desa" id="desa" class="form-control input-lg" wire:model.defer="selectedDesa">
+                                <option selected="true" value="">Pilih Desa</option>
                                 @if (!is_null($kelurahans))
                                     @foreach ($kelurahans as $desa)
                                         <option value="{{ $desa->kode }}">{{ $desa->nama }}</option>
                                     @endforeach
                                 @endif
                             </select>
+                            <span class="text-danger">@error('selectedDesa')
+                                {{ $message }}
+                            @enderror</span>
                         </div>
                     </div>
                 </div>
@@ -213,39 +237,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a1_1">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a1_1">
+                            <input class="form-check-input" type="radio" name="param_1_a1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a1_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($a1_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a1-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah masyarakat mengetahui tanda-tanda alam penyebab terjadi bencana di Desanya?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1" wire:model.defer="a1_2">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="1" wire:model="a1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0" wire:model.defer="a1_2">
+                            <input class="form-check-input" type="radio" name="param_1_a1_2_{{ $key }}" value="0" wire:model="a1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a1_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-1-{{ $key }}">
                     <div class="title p-1">
@@ -253,39 +285,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a2_1">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a2_1">
+                            <input class="form-check-input" type="radio" name="param_1_a2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a2_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($a2_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a2-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah masyarakat pernah mendapatkan sosialsasi tentang penyebab dan tanda- tanda terjadinya bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1" wire:model.defer="a2_2">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="1" wire:model="a2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0" wire:model.defer="a2_2">
+                            <input class="form-check-input" type="radio" name="param_1_a2_2_{{ $key }}" value="0" wire:model="a2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a2_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-1-{{ $key }}">
                     <div class="title p-1">
@@ -293,39 +333,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a3_1">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a3_1">
+                            <input class="form-check-input" type="radio" name="param_1_a3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a3_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($a3_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a3-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah ada sumber daya khusus (sarana, prasarana, personil) untuk penyebaran informasi peringatan dini bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1" wire:model.defer="a3_2">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="1" wire:model="a3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0" wire:model.defer="a3_2">
+                            <input class="form-check-input" type="radio" name="param_1_a3_2_{{ $key }}" value="0" wire:model="a3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a3_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-1-{{ $key }}">
                     <div class="title p-1">
@@ -333,39 +381,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a4_1">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a4_1">
+                            <input class="form-check-input" type="radio" name="param_1_a4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a4_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($a4_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a4-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah masyarakat telah melakukan upaya-upaya untuk mengurangi kerentanan (dampak yang mungkin terjadi) akibat bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1" wire:model.defer="a4_2">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="1" wire:model="a4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0" wire:model.defer="a4_2">
+                            <input class="form-check-input" type="radio" name="param_1_a4_2_{{ $key }}" value="0" wire:model="a4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a4_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-1-{{ $key }}">
                     <div class="title p-1">
@@ -373,39 +429,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="a5_1">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="a5_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="a5_1">
+                            <input class="form-check-input" type="radio" name="param_1_a5_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="a5_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a5_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($a5_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-a5-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah Rencana Evakuasi Desa tersebut telah diujicoba melalui pelaksanaan simulasi evakuasi Desa?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1" wire:model.defer="a5_2">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="1" wire:model="a5_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0" wire:model.defer="a5_2">
+                            <input class="form-check-input" type="radio" name="param_1_a5_2_{{ $key }}" value="0" wire:model="a5_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('a5_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 {{-- Parameter 2 --}}
 
@@ -415,39 +479,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b1_1">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b1_1">
+                            <input class="form-check-input" type="radio" name="param_2_b1_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b1_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($b1_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b1-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah tempat evakuasi tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1" wire:model.defer="b1_2">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="1" wire:model="b1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0" wire:model.defer="b1_2">
+                            <input class="form-check-input" type="radio" name="param_2_b1_2_{{ $key }}" value="0" wire:model="b1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b1_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-1-{{ $key }}">
                     <div class="title p-1">
@@ -455,39 +527,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b2_1">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b2_1">
+                            <input class="form-check-input" type="radio" name="param_2_b2_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b2_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($b2_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b2-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah tempat pengungsian tersebut sudah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1" wire:model.defer="b2_2">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="1" wire:model="b2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0" wire:model.defer="b2_2">
+                            <input class="form-check-input" type="radio" name="param_2_b2_2_{{ $key }}" value="0" wire:model="b2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b2_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-1-{{ $key }}">
                     <div class="title p-1">
@@ -495,39 +575,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b3_1">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b3_1">
+                            <input class="form-check-input" type="radio" name="param_2_b3_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b3_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($b3_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b3-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah sumber air bersih, sarana sanitasi (MCK) tersebut telah dikelola sehingga dapat dimanfaatkan untuk kegiatan masyarakat dan kepentingan umum sebelum maupun pada saat terjadi bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1" wire:model.defer="b3_2">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="1" wire:model="b3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0" wire:model.defer="b3_2">
+                            <input class="form-check-input" type="radio" name="param_2_b3_2_{{ $key }}" value="0" wire:model="b3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b3_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-1-{{ $key }}">
                     <div class="title p-1">
@@ -535,39 +623,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model.defer="b4_1">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="1" wire:model="b4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model.defer="b4_1">
+                            <input class="form-check-input" type="radio" name="param_2_b4_1_{{ $key }}" data-ask="{{ $key }}" value="0" wire:model="b4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b4_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($b4_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-b4-2-{{ $key }}">
                     <div class="title p-1">
                         <p>Apakah tenaga kesehatan tersebut sudah dilengkapi dengan fasilitas standar kesehatan untuk mendukung proses penyelamatan korban pada saat tanggap darurat bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1" wire:model.defer="b4_2">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="1" wire:model="b4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0" wire:model.defer="b4_2">
+                            <input class="form-check-input" type="radio" name="param_2_b4_2_{{ $key }}" value="0" wire:model="b4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('b4_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
             </div>
         </div>
@@ -585,39 +681,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="1" wire:model.defer="c1_1">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="1" wire:model="c1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="0" wire:model.defer="c1_1">
+                            <input class="form-check-input" type="radio" name="param_3_c1_1" value="0" wire:model="c1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c1_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($c1_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c1-2">
                     <div class="title p-1">
                         <p>Apakah masyarakat mampu secara mandiri untuk menjaga keberlangsungan perekonomiannya pada saat maupun pasca bencana tersebut (tidak membutuhkan program-program bantuan sosial atau sejenisnya)?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="1" wire:model.defer="c1_2">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="1" wire:model="c1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="0" wire:model.defer="c1_2">
+                            <input class="form-check-input" type="radio" name="param_3_c1_2" value="0" wire:model="c1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c1_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c2-1">
                     <div class="title p-1">
@@ -625,39 +729,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="1" wire:model.defer="c2_1">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="1" wire:model="c2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="0" wire:model.defer="c2_1">
+                            <input class="form-check-input" type="radio" name="param_3_c2_1" value="0" wire:model="c2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c2_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($c2_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c2-2">
                     <div class="title p-1">
                         <p>Apakah sebagian besar masyarakat sedang atau telah lulus jenjang pendidikan Perguruan Tinggi?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="1" wire:model.defer="c2_2">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="1" wire:model="c2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="0" wire:model.defer="c2_2">
+                            <input class="form-check-input" type="radio" name="param_3_c2_2" value="0" wire:model="c2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c2_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c3-1">
                     <div class="title p-1">
@@ -665,39 +777,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="1" wire:model.defer="c3_1">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="1" wire:model="c3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="0" wire:model.defer="c3_1">
+                            <input class="form-check-input" type="radio" name="param_3_c3_1" value="0" wire:model="c3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c3_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if ($c3_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-c3-2">
                     <div class="title p-1">
                         <p>Apakah proses pengembangan pemukiman di wilayah  ini sudah memperhatikan aspek pengurangan risiko bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="1" wire:model.defer="c3_2">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="1" wire:model="c3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="0" wire:model.defer="c3_2">
+                            <input class="form-check-input" type="radio" name="param_3_c3_2" value="0" wire:model="c3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('c3_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
             </div>
         </div>
@@ -715,39 +835,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="1" wire:model.defer="d1_1">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="1" wire:model="d1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="0" wire:model.defer="d1_1">
+                            <input class="form-check-input" type="radio" name="param_4_d1_1" value="0" wire:model="d1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d1_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($d1_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d1-2">
                     <div class="title p-1">
                         <p>Apakah penyiapan kebutuhan pangan oleh masyarakat dapat memenuhi kehidupan sampai selesainya masa tanggap darurat bencana?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="1" wire:model.defer="d1_2">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="1" wire:model="d1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="0" wire:model.defer="d1_2">
+                            <input class="form-check-input" type="radio" name="param_4_d1_2" value="0" wire:model="d1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d1_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d2-1">
                     <div class="title p-1">
@@ -755,39 +883,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="1" wire:model.defer="d2_1">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="1" wire:model="d2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="0" wire:model.defer="d2_1">
+                            <input class="form-check-input" type="radio" name="param_4_d2_1" value="0" wire:model="d2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d2_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($d2_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d2-2">
                     <div class="title p-1">
                         <p>Jika terjadi bencana, apakah masyarakat mampu melakukan perbaikan secara mandiri untuk tingkat kerusakan sedang/berat pada bangunan dan lahan?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="1" wire:model.defer="d2_2">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="1" wire:model="d2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="0" wire:model.defer="d2_2">
+                            <input class="form-check-input" type="radio" name="param_4_d2_2" value="0" wire:model="d2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d2_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d3-1">
                     <div class="title p-1">
@@ -795,39 +931,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="1" wire:model.defer="d3_1">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="1" wire:model="d3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="0" wire:model.defer="d3_1">
+                            <input class="form-check-input" type="radio" name="param_4_d3_1" value="0" wire:model="d3_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d3_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($d3_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d3-2">
                     <div class="title p-1">
                         <p>Apakah penerapan hasil-hasil penelitian terkait dengan pengurangan risiko bencana (seperti: penerapan struktur bangunan tahan gempa, penerapan terasering, ataupun penanaman hutan mangrove) tersebut dilakukan secara mandiri/ swadaya masyarakat?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="1" wire:model.defer="d3_2">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="1" wire:model="d3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="0" wire:model.defer="d3_2">
+                            <input class="form-check-input" type="radio" name="param_4_d3_2" value="0" wire:model="d3_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d3_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d4-1">
                     <div class="title p-1">
@@ -835,39 +979,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="1" wire:model.defer="d4_1">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="1" wire:model="d4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="0" wire:model.defer="d4_1">
+                            <input class="form-check-input" type="radio" name="param_4_d4_1" value="0" wire:model="d4_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d4_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($d4_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-d4-2">
                     <div class="title p-1">
                         <p>Apakah keterlibatan masyarakat dilakukan berdasarkan prosedur tetap penanganan darurat bencana (SOP) tingkat Desa/Kelurahan yang tersinkronisasi dengan SOP tingkat Kabupaten/Kota</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="1" wire:model.defer="d4_2">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="1" wire:model="d4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="0" wire:model.defer="d4_2">
+                            <input class="form-check-input" type="radio" name="param_4_d4_2" value="0" wire:model="d4_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('d4_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
             </div>
         </div>
@@ -885,39 +1037,47 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="1" wire:model.defer="e1_1">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="1" wire:model="e1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="0" wire:model.defer="e1_1">
+                            <input class="form-check-input" type="radio" name="param_5_e1_1" value="0" wire:model="e1_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('e1_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($e1_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-e1-2">
                     <div class="title p-1">
                         <p>Apakah rencana kesiapsiagaan/kontinjensi tersebut telah disahkan dalam bentuk Peraturan Desa atau aturan setingkat Desa yang lainnya?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="1" wire:model.defer="e1_2">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="1" wire:model="e1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="0" wire:model.defer="e1_2">
+                            <input class="form-check-input" type="radio" name="param_5_e1_2" value="0" wire:model="e1_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('e1_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-e2-1">
                     <div class="title p-1">
@@ -925,47 +1085,55 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="1" wire:model.defer="e2_1">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="1" wire:model="e2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="0" wire:model.defer="e2_1">
+                            <input class="form-check-input" type="radio" name="param_5_e2_1" value="0" wire:model="e2_1">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('e2_1')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
 
+                @if($e2_1 == 1)
                 <div class="pertanyaan m-3 mb-5" id="pertanyaan-e2-2">
                     <div class="title p-1">
                         <p>Apakah kelompok/organisasi relawan tersebut mampu melaksanakan upaya-upaya pengurangan risiko bencana secara mandiri?</p>
                     </div>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="1" wire:model.defer="e2_2">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="1" wire:model="e2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ya
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="0" wire:model.defer="e2_2">
+                            <input class="form-check-input" type="radio" name="param_5_e2_2" value="0" wire:model="e2_2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Tidak
                             </label>
                         </div>
                     </div>
+                    <span class="text-danger">@error('e2_2')
+                        {{ $message }}
+                    @enderror</span>
                 </div>
+                @endif
 
             </div>
         </div>
         @endif
 
-        <div class="action-buttons d-flex justify-content-between bg-white pt-2 pb-5 mb-5">
+        <div class="action-buttons d-flex justify-content-between bg-white pt-2 pb-5 mt-5 mb-5">
             @if($currentStep == 1)
-                <div></div>
+                <button type="button" class="btn btn-md btn-danger" wire:click="batal()">Batalkan</button>
             @endif
 
             @if($currentStep >= 2 && $currentStep <= 17)
@@ -983,189 +1151,3 @@
 
     </form>
 </div>
-
-<script>
-    @if ($currentStep > 2 && $currentStep < 15)
-        @if ($a1_1 == 0)
-            document.getElementById("pertanyaan-a1-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($a2_1 == 0)
-            document.getElementById("pertanyaan-a2-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($a3_1 == 0)
-            document.getElementById("pertanyaan-a3-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($a4_1 == 0)
-            document.getElementById("pertanyaan-a4-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($a5_1 == 0)
-            document.getElementById("pertanyaan-a5-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($b1_1 == 0)
-            document.getElementById("pertanyaan-b1-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($b2_1 == 0)
-            document.getElementById("pertanyaan-b2-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($b3_1 == 0)
-            document.getElementById("pertanyaan-b3-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-        @if ($b4_1 == 0)
-            document.getElementById("pertanyaan-b4-2-"+{{ $currentStep - 2 }}).style.display = "none";
-        @endif
-    @endif
-
-
-
-    @if ($currentStep == 15)
-        @if ($c1_1 == 0)
-            document.getElementById("pertanyaan-c1-2").style.display = "none";
-        @endif
-        @if ($c2_1 == 0)
-            document.getElementById("pertanyaan-c2-2").style.display = "none";
-        @endif
-        @if ($c3_1 == 0)
-            document.getElementById("pertanyaan-c3-2").style.display = "none";
-        @endif
-    @endif
-
-    @if ($currentStep == 16)
-        @if ($d1_1 == 0)
-            document.getElementById("pertanyaan-d1-2").style.display = "none";
-        @endif
-        @if ($d2_1 == 0)
-            document.getElementById("pertanyaan-d2-2").style.display = "none";
-        @endif
-        @if ($d3_1 == 0)
-            document.getElementById("pertanyaan-d3-2").style.display = "none";
-        @endif
-        @if ($d4_1 == 0)
-            document.getElementById("pertanyaan-d4-2").style.display = "none";
-        @endif
-    @endif
-
-    @if ($currentStep == 17)
-        @if ($e1_1 == 0)
-            document.getElementById("pertanyaan-e1-2").style.display = "none";
-        @endif
-        @if ($e2_1 == 0)
-            document.getElementById("pertanyaan-e2-2").style.display = "none";
-        @endif
-    @endif
-
-    $(document).ready(function(){
-        $('input[type=radio]').click(function(){
-            var id = $(this).data("ask");
-
-            if(this.name == "param_1_a1_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-a1-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-a1-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_1_a2_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-a2-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-a2-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_1_a3_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-a3-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-a3-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_1_a4_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-a4-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-a4-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_1_a5_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-a5-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-a5-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_2_b1_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-b1-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-b1-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_2_b2_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-b2-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-b2-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_2_b3_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-b3-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-b3-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_2_b4_1_"+id){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-b4-2-'+id).style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-b4-2-'+id).style.display = "none";
-                }
-            }else if(this.name == "param_3_c1_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-c1-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-c1-2').style.display = "none";
-                }
-            }else if(this.name == "param_3_c2_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-c2-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-c2-2').style.display = "none";
-                }
-            }else if(this.name == "param_3_c3_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-c3-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-c3-2').style.display = "none";
-                }
-            }else if(this.name == "param_4_d1_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-d1-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-d1-2').style.display = "none";
-                }
-            }else if(this.name == "param_4_d2_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-d2-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-d2-2').style.display = "none";
-                }
-            }else if(this.name == "param_4_d3_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-d3-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-d3-2').style.display = "none";
-                }
-            }else if(this.name == "param_4_d4_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-d4-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-d4-2').style.display = "none";
-                }
-            }else if(this.name == "param_5_e1_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-e1-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-e1-2').style.display = "none";
-                }
-            }else if(this.name == "param_5_e2_1"){
-                if($(this).val() == 1){
-                    document.getElementById('pertanyaan-e2-2').style.display = "block";
-                }else{
-                    document.getElementById('pertanyaan-e2-2').style.display = "none";
-                }
-            }
-        });
-    });
-</script>

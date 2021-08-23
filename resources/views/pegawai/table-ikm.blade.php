@@ -227,32 +227,32 @@
             </tr>
         @endfor
         <tr class="bg-dark text-light text-center">
-            <td colspan="2">Indeks Multi Bencana</td>
-            <td>{{ round($avg_a1/12,2) }}</td>
-            <td>{{ round($avg_a2/12,2) }}</td>
-            <td>{{ round($avg_a3/12,2) }}</td>
-            <td>{{ round($avg_a4/12,2) }}</td>
-            <td>{{ round($avg_a5/12,2) }}</td>
-            <td>{{ round($avg_indeks_a/12,2) }}</td>
-            <td>{{ round($avg_b1/12,2) }}</td>
-            <td>{{ round($avg_b2/12,2) }}</td>
-            <td>{{ round($avg_b3/12,2) }}</td>
-            <td>{{ round($avg_b4/12,2) }}</td>
-            <td>{{ round($avg_indeks_b/12,2) }}</td>
-            <td>{{ $avg_c1 }}</td>
-            <td>{{ $avg_c2 }}</td>
-            <td>{{ $avg_c3 }}</td>
-            <td>{{ $avg_indeks_c }}</td>
-            <td>{{ $avg_d1 }}</td>
-            <td>{{ $avg_d2 }}</td>
-            <td>{{ $avg_d3 }}</td>
-            <td>{{ $avg_d4 }}</td>
-            <td>{{ $avg_indeks_d }}</td>
-            <td>{{ $avg_e1 }}</td>
-            <td>{{ $avg_e2 }}</td>
-            <td>{{ $avg_indeks_e }}</td>
-            <td>{{ round($avg_indeks_kapasitas/12,2) }}</td>
-            <td>{{ $avg_indeks_kapasitas/12 >= 0 && $avg_indeks_kapasitas/12 <= 0.4 ? "Rendah" : ($avg_indeks_kapasitas/12 > 0.4 && $avg_indeks_kapasitas/12 <= 0.8 ? "Sedang" : "Tinggi") }}</td>
+            <td colspan="2"><b>Indeks Multi Bencana</b></td>
+            <td><b>{{ round($avg_a1/12,2) }}</b></td>
+            <td><b>{{ round($avg_a2/12,2) }}</b></td>
+            <td><b>{{ round($avg_a3/12,2) }}</b></td>
+            <td><b>{{ round($avg_a4/12,2) }}</b></td>
+            <td><b>{{ round($avg_a5/12,2) }}</b></td>
+            <td><b>{{ round($avg_indeks_a/12,2) }}</b></td>
+            <td><b>{{ round($avg_b1/12,2) }}</b></td>
+            <td><b>{{ round($avg_b2/12,2) }}</b></td>
+            <td><b>{{ round($avg_b3/12,2) }}</b></td>
+            <td><b>{{ round($avg_b4/12,2) }}</b></td>
+            <td><b>{{ round($avg_indeks_b/12,2) }}</b></td>
+            <td><b>{{ $avg_c1 }}</b></td>
+            <td><b>{{ $avg_c2 }}</b></td>
+            <td><b>{{ $avg_c3 }}</b></td>
+            <td><b>{{ $avg_indeks_c }}</b></td>
+            <td><b>{{ $avg_d1 }}</b></td>
+            <td><b>{{ $avg_d2 }}</b></td>
+            <td><b>{{ $avg_d3 }}</b></td>
+            <td><b>{{ $avg_d4 }}</b></td>
+            <td><b>{{ $avg_indeks_d }}</b></td>
+            <td><b>{{ $avg_e1 }}</b></td>
+            <td><b>{{ $avg_e2 }}</b></td>
+            <td><b>{{ $avg_indeks_e }}</b></td>
+            <td><b>{{ round($avg_indeks_kapasitas/12,2) }}</b></td>
+            <td><b>{{ $avg_indeks_kapasitas/12 >= 0 && $avg_indeks_kapasitas/12 <= 0.4 ? "Rendah" : ($avg_indeks_kapasitas/12 > 0.4 && $avg_indeks_kapasitas/12 <= 0.8 ? "Sedang" : "Tinggi") }}</b></td>
         </tr>
     </tbody>
 </table>
