@@ -114,7 +114,7 @@
                                     <option value="{{ $p->kode }}">{{ $p->nama }}</option>
                                 @endforeach
                             </select>
-                            <span class="text-danger">@error('provincis')
+                            <span class="text-danger">@error('selectedProvinsi')
                                 {{ $message }}
                             @enderror</span>
                         </div>
@@ -131,7 +131,7 @@
                                     <option value="{{ $d->kode }}">{{ $d->nama }}</option>
                                 @endforeach
                             </select>
-                            <span class="text-danger">@error('kotas')
+                            <span class="text-danger">@error('selectedKota')
                                 {{ $message }}
                             @enderror</span>
                         </div>
@@ -154,7 +154,7 @@
                                 @endif
 
                             </select>
-                            <span class="text-danger">@error('kecamatans')
+                            <span class="text-danger">@error('selectedKecamatan')
                                 {{ $message }}
                             @enderror</span>
                         </div>

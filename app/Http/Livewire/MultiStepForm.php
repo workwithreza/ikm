@@ -193,18 +193,18 @@ class MultiStepForm extends Component{
                 "usia" => "required",
                 "jabatan" => "required",
                 "gender" => "required",
-                "provincis" => "required",
-                "kotas" => "required",
-                "kecamatans" => "required",
+                "selectedProvinsi" => "required",
+                "selectedKota" => "required",
+                "selectedKecamatan" => "required",
                 "selectedDesa" => "required"
             ],[
                 "nama_responden.required" => "Nama Responden Tidak Boleh Kosong!",
                 "usia.required" => "Usia Tidak Boleh Kosong",
                 "jabatan.required" => "Jabatan Tidak Boleh Kosong",
                 "gender.required" => "Silahkan Pilih Jenis Kelamin",
-                "provincis.required" => "Silahkan Pilih Provinsi",
-                "kotas.required" => "Silahkan Pilih Kabupaten/Kota",
-                "kecamatans.required" => "Silahkan Pilih Kecamatan",
+                "selectedProvinsi.required" => "Silahkan Pilih Provinsi",
+                "selectedKota.required" => "Silahkan Pilih Kabupaten/Kota",
+                "selectedKecamatan.required" => "Silahkan Pilih Kecamatan",
                 "selectedDesa.required" => "Silahkan Pilih Desa"
             ]);
         }else if($this->currentStep > 2 && $this->currentStep < 15){
