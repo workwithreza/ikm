@@ -50,16 +50,23 @@ class AdminController extends Controller{
         $request->validate([
             'nipedit' => 'required',
             'namaedit' => 'required',
-            'usernameedit' => 'required',
-            'passwordedit' => 'required'
+            'usernameedit' => 'required'
         ]);
 
-        $edit = DB::table('pegawais')->where('NIP',$request->input('nipedit'))
-        ->update([
-            "nama_pegawai" => $request->input('namaedit'),
-            "username_pegawai" => $request->input('usernameedit'),
-            "password_pegawai" => md5($request->input('passwordedit'))
-        ]);
+        if($request->input('passwordedit')){
+            $edit = DB::table('pegawais')->where('NIP',$request->input('nipedit'))
+            ->update([
+                "nama_pegawai" => $request->input('namaedit'),
+                "username_pegawai" => $request->input('usernameedit'),
+                "password_pegawai" => md5($request->input('passwordedit'))
+                ]);
+        }else{
+            $edit = DB::table('pegawais')->where('NIP',$request->input('nipedit'))
+            ->update([
+                "nama_pegawai" => $request->input('namaedit'),
+                "username_pegawai" => $request->input('usernameedit')
+                ]);
+        }
 
         if($edit){
             return back()->with('berhasil', "Berhasil Update Data Pegawai");
