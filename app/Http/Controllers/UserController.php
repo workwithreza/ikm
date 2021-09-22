@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\IKMExportView;
 use Illuminate\Support\Facades\DB;
