@@ -17,6 +17,8 @@ class MultiStepForm extends Component{
     public $kotas;
     public $kecamatans;
     public $kelurahans;
+    public $surveyor;
+    public $tanggal;
 
     public $selectedProvinsi = null;
     public $selectedKota = null;
@@ -98,6 +100,9 @@ class MultiStepForm extends Component{
                 $this->selectedKota = session('Step1')['kota'];
                 $this->selectedKecamatan = session('Step1')['kecamatan'];
                 $this->selectedDesa = session('Step1')['desa'];
+
+                $this->surveyor = session('Step1')['surveyor'];
+                $this->tanggal = session('Step1')['tanggal'];
             }
         }else if($step == 2 && session()->has('Step2')){
             $this->gempa_bumi = session('Step2')['3'];
@@ -186,6 +191,15 @@ class MultiStepForm extends Component{
         return view('livewire.multi-step-form',$data);
     }
 
+    public function updatingSelectedProvinsi(){
+        $this->selectedKota = null;
+        $this->selectedKecamatan = null;
+    }
+
+    public function updatingSelectedKota(){
+        $this->selectedKecamatan = null;
+    }
+
     public function validateData(){
         if($this->currentStep == 1){
             $this->validate([
@@ -196,7 +210,9 @@ class MultiStepForm extends Component{
                 "selectedProvinsi" => "required",
                 "selectedKota" => "required",
                 "selectedKecamatan" => "required",
-                "selectedDesa" => "required"
+                "selectedDesa" => "required",
+                "surveyor" => "required",
+                "tanggal" => "required"
             ],[
                 "nama_responden.required" => "Nama Responden Tidak Boleh Kosong!",
                 "usia.required" => "Usia Tidak Boleh Kosong",
@@ -205,7 +221,9 @@ class MultiStepForm extends Component{
                 "selectedProvinsi.required" => "Silahkan Pilih Provinsi",
                 "selectedKota.required" => "Silahkan Pilih Kabupaten/Kota",
                 "selectedKecamatan.required" => "Silahkan Pilih Kecamatan",
-                "selectedDesa.required" => "Silahkan Pilih Desa"
+                "selectedDesa.required" => "Silahkan Pilih Desa",
+                "surveyor.required" => "Nama Surveyor Tidak Boleh Kosong",
+                "tanggal.required" => "Tanggal Survei Tidak Boleh Kosong"
             ]);
         }else if($this->currentStep > 2 && $this->currentStep < 15){
             $this->validate([
@@ -280,7 +298,9 @@ class MultiStepForm extends Component{
                 "provinsi" => $this->selectedProvinsi,
                 "kota" => $this->selectedKota,
                 "kecamatan" => $this->selectedKecamatan,
-                "desa" => $this->selectedDesa
+                "desa" => $this->selectedDesa,
+                "surveyor" => $this->surveyor,
+                "tanggal" => $this->tanggal
             ));
         }else if($this->currentStep == 2){
             session()->put('Step2',array(
@@ -542,7 +562,8 @@ class MultiStepForm extends Component{
                 'no_param_3' => $data['param_3'],
                 'no_param_4' => $data['param_4'],
                 'no_param_5' => $data['param_5'],
-                'tanggal_survey' => date("Y-m-d")
+                'Surveyor' => session('Step1')['surveyor'],
+                'tanggal_survey' => session('Step1')['tanggal']
             ]);
         }
         session()->pull('Step1');

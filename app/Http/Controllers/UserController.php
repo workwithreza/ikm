@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pegawai;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\IKMExportView;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller{
@@ -35,6 +36,10 @@ class UserController extends Controller{
     }
 
     public function detail($no_responden){
+
+        $kode = DB::table('responden')->where('no_responden','=',$no_responden)->first()->kode;
+        DB::table('wilayah')->where('kode','=',$kode)->update(['no_responden' => $no_responden]);
+
         $no_param_3 = DB::table('survey')->select('no_param_3')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_3;
         $no_param_4 = DB::table('survey')->select('no_param_4')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_4;
         $no_param_5 = DB::table('survey')->select('no_param_5')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_5;
@@ -59,7 +64,11 @@ class UserController extends Controller{
 
         $bencana = DB::table('bencana')->get();
         $responden = DB::table('responden')->join('wilayah','wilayah.kode','=','responden.kode')->where('responden.no_responden','=',$no_responden)->first();
-        $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$no_responden)->first();
+        $surveyor = DB::table('survey')->select('surveyor','tanggal_survey')->where('survey.no_responden','=',$no_responden)->first();
+        if($surveyor->surveyor == NULL){
+            $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$no_responden)->first();
+            $surveyor->surveyor = $pegawai->nama_pegawai;
+        }
 
         $kode_provinsi = substr($responden->kode,0,2);
         $kode_kota = substr($responden->kode,0,5);
@@ -78,14 +87,20 @@ class UserController extends Controller{
             "param_5" => $param_5,
             "bencana" => $bencana,
             'responden' => $responden,
-            'pegawai' => $pegawai,
+            'pegawai' => $surveyor,
             'wilayah' => $wilayah
         );
 
         return view('pegawai.detail-survei',$data);
     }
 
-    public function hapus($no_responden){
+    public function hapus(Request $request){
+        $no_responden = $request->input('no_responden');
+
+        //Get kode from responden
+        $kode = DB::table('responden')->where('no_responden','=',$no_responden)->first()->kode;
+        $wilayah = DB::table('wilayah')->where('kode','=',$kode)->first()->nama;
+
         //Get All Number
         $no_survey = DB::table('survey')->select('no')->where('no_responden','=',$no_responden)->get();
         $no_param_3 = DB::table('survey')->select('no_param_3')->where('no_responden','=',$no_responden)->distinct()->get()->first()->no_param_3;
@@ -123,10 +138,6 @@ class UserController extends Controller{
         }
 
         //Delete Responden
-        //Get kode from responden
-        $kode = DB::table('responden')->where('no_responden','=',$no_responden)->first()->kode;
-        $wilayah = DB::table('wilayah')->where('kode','=',$kode)->first()->nama;
-
         //Updating Foreign Key to NULL
         DB::table('responden')->where('no_responden','=',$no_responden)->update(['kode' => NULL]);
         DB::table('wilayah')->where('kode','=',$kode)->update(['no_responden' => NULL]);

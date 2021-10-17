@@ -60,18 +60,17 @@ class AdminController extends Controller{
                 "username_pegawai" => $request->input('usernameedit'),
                 "password_pegawai" => md5($request->input('passwordedit'))
                 ]);
+            return back()->with('berhasil', "Berhasil Update Data Pegawai");
         }else{
             $edit = DB::table('pegawais')->where('NIP',$request->input('nipedit'))
             ->update([
                 "nama_pegawai" => $request->input('namaedit'),
                 "username_pegawai" => $request->input('usernameedit')
-                ]);
-        }
-
-        if($edit){
+            ]);
             return back()->with('berhasil', "Berhasil Update Data Pegawai");
         }
-        return back()->with('gagal', 'Gagal Menambahkan Data Pegawai');
+
+        return back()->with('gagal', 'Gagal Update Data Pegawai');
     }
 
     public function hapus($NIP){

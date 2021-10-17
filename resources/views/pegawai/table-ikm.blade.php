@@ -6,7 +6,7 @@
             <td colspan="6">: {{ $responden->nama_responden }}</td>
             <td colspan="12"></td>
             <td colspan="4">Nama Surveyor</td>
-            <td colspan="6">: {{ $pegawai->nama_pegawai }}</td>
+            <td colspan="6">: {{ $pegawai->surveyor }}</td>
         </tr>
         <tr class="borderless">
             <td colspan="2">Jabatan</td>

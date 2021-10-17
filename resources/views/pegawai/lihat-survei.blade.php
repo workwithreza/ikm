@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard_user.css') }}">
     <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 </head>
@@ -74,13 +74,14 @@
                         <td class="text-center">{{ $l->nama }}</td>
                         <td class="text-center">{{ $l->tanggal_survey }}</td>
                         <td>
-                            <div class="d-flex justify-content-around">
+                            <div class="d-flex justify-content-around" id="btnAction">
                                 <a href="{{ route('user.detail-survei',$l->no_responden) }}" class="btn btn-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6.5c3.79 0 7.17 2.13 8.82 5.5-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12C4.83 8.63 8.21 6.5 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z"/></svg>
                                 </a>
-                                <a href="{{ route('user.hapus-survei',$l->no_responden) }}" class="btn btn-danger">
+                                <!-- href="{{ route('user.hapus-survei',$l->no_responden) }}" -->
+                                <button class="btn btn-danger" id="btnHapus" onclick="alertHapus({{ $l->no_responden }})" class="btn btn-danger">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
-                                </a>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -89,10 +90,40 @@
         </table>
     </div>
 
+    <div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" width="100%">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Hapus Data Survei</h4>
+                </div>
+
+                <div class="modal-body text-center">
+                    <h5>Yakin ingin menghapus data ini?</h5><br>
+                    <form action="{{ route('user.hapus-survei') }}" method="get">
+                        @csrf
+                        <input type="text" name="no_responden" id="no_responden" hidden>
+                        <button type="submit" class="btn btn-danger" id="buttonHapus">Hapus</button>
+                        <button type="button" class="btn btn-primary btnclose" data-dismiss="modal">Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('Bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
-        } );
+
+            $('.btnclose').on('click',function(){
+                $('#modalAlert').modal('hide');
+            });
+        });
+
+        function alertHapus(no){
+            $('#modalAlert').modal('show');
+            document.getElementById('no_responden').setAttribute("value",no);
+        }
     </script>
 </body>
 </html>
