@@ -29,7 +29,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/akun',[AdminController::class, 'akun'])->name('admin.akun');
     Route::get('/user',[UserController::class, 'dashboard'])->name('user.dashboard');
     Route::post('/admin/tambah_akun',[AdminController::class, 'tambah'])->name('admin.tambah');
-    Route::get('/admin/hapus/{NIP}',[AdminController::class, 'hapus']);
+    Route::get('/admin/hapus',[AdminController::class, 'hapus'])->name('admin.hapus_pegawai');
     Route::post('/admin/edit',[AdminController::class, 'edit'])->name('admin.edit');
     Route::get('/user/survei/{step}',[UserController::class, 'survei'])->name('user.survei');
     Route::view('/user/survei-sukses', 'pegawai.sukses')->name('user.survei-sukses');

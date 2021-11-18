@@ -42,6 +42,12 @@ class IKMExportView implements FromView
         $bencana = DB::table('bencana')->get();
         $responden = DB::table('responden')->join('wilayah','wilayah.kode','=','responden.kode')->where('responden.no_responden','=',$this->no_responden)->first();
         $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$this->no_responden)->first();
+        $surveyor = DB::table('survey')->select('surveyor','tanggal_survey')->where('survey.no_responden','=',$this->no_responden)->first();
+        if($surveyor->surveyor == NULL){
+            $pegawai = DB::table('survey')->select('pegawais.*','survey.tanggal_survey')->join('pegawais','survey.NIP','=','pegawais.NIP')->where('survey.no_responden','=',$this->no_responden)->first();
+            $surveyor->surveyor = $pegawai->nama_pegawai;
+        }
+
 
         $kode_provinsi = substr($responden->kode,0,2);
         $kode_kota = substr($responden->kode,0,5);
@@ -53,16 +59,16 @@ class IKMExportView implements FromView
             "kecamatan" => DB::table('wilayah')->where('kode','=',$kode_kecamatan)->first()
         );
 
-        $data = [
+        $data = array(
             "param_1_2" => $param_1_2,
             "param_3" => $param_3,
             "param_4" => $param_4,
             "param_5" => $param_5,
             "bencana" => $bencana,
             'responden' => $responden,
-            'pegawai' => $pegawai,
+            'pegawai' => $surveyor,
             'wilayah' => $wilayah
-        ];
+        );
 
         return view('pegawai.table-ikm',$data);
     }

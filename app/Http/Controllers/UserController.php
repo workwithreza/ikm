@@ -28,7 +28,7 @@ class UserController extends Controller{
             "list" => DB::table('survey')
                         ->join('responden','survey.no_responden', '=', 'responden.no_responden')
                         ->join('wilayah','wilayah.kode', '=', 'responden.kode')
-                        ->select('survey.no_responden','responden.nama_responden','survey.tanggal_survey','wilayah.nama')
+                        ->select('survey.no_responden','responden.nama_responden','survey.tanggal_survey','wilayah.nama','survey.NIP')
                         ->distinct()
                         ->get()
         );
@@ -167,5 +167,6 @@ class UserController extends Controller{
             session()->pull('PegawaiLoged');
             return redirect()->route('login');
         }
+        return back();
     }
 }
