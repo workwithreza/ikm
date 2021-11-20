@@ -39,17 +39,18 @@ class AdminController extends Controller{
                 'password' => 'required'
             ]);
 
-            $query = DB::table('pegawais')->insert([
-                'NIP' => $request->input('nip'),
-                'nama_pegawai' => $request->input('nama'),
-                'username_pegawai' => $request->input('username'),
-                'password_pegawai' => md5($request->input('password'))
-            ]);
+            $isDuplicate = DB::table('pegawais')->get()->where('NIP','=',$request->input('nip'));
 
-            if($query){
-                return back()->with('berhasil', 'Berhasil Menambahkan Data Pegawai');
-            }else{
+            if($isDuplicate->count() > 0){
                 return back()->with('gagal', 'Gagal Menambahkan Data Pegawai');
+            }else{
+                $query = DB::table('pegawais')->insert([
+                    'NIP' => $request->input('nip'),
+                    'nama_pegawai' => $request->input('nama'),
+                    'username_pegawai' => $request->input('username'),
+                    'password_pegawai' => md5($request->input('password'))
+                ]);
+                return back()->with('berhasil', 'Berhasil Menambahkan Data Pegawai');
             }
         }
         return back()->withInput();
