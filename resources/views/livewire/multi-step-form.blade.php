@@ -184,7 +184,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nama Surveyor</label>
-                            <input type="text" name="nama" class="form-control" wire:model.defer="surveyor">
+                            <input type="text" name="nama" class="form-control" value="{{ $akun->nama_pegawai }}" readonly>
                         </div>
                         <span class="text-danger">@error('surveyor')
                             {{ $message }}
@@ -194,7 +194,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Tanggal Survey</label>
-                            <input type="date" name="tanggal" class="form-control" wire:model.defer="tanggal">
+                            <input type="date" name="tanggal" class="form-control" value="{{ date("Y-m-d") }}" readonly>
                         </div>
                         <span class="text-danger">@error('tanggal')
                             {{ $message }}

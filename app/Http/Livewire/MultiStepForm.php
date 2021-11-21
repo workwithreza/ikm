@@ -18,7 +18,6 @@ class MultiStepForm extends Component{
     public $kecamatans;
     public $kelurahans;
     public $surveyor;
-    public $tanggal;
 
     public $selectedProvinsi = null;
     public $selectedKota = null;
@@ -89,6 +88,46 @@ class MultiStepForm extends Component{
     public $lastStep = 16;
 
     public function mount($step){
+        if($step > 1){
+            if($step == 2){
+                if(!session()->has('Step1')){
+                    return redirect()->route('user.survei',1);
+                }
+            }else if($step > 2 && $step < 15){
+                if(!session()->has('Step2')){
+                    return redirect()->route('user.survei',$this->currentStep);
+                }else{
+                    if(session('Step2')[strval($step)] != null){
+                        $this->currentStep = $step;
+                    }else{
+                        return redirect()->route('user.survei',$this->currentStep);
+                    }
+                }
+            }else if($step == 15){
+                for($i=14; $i>2; $i--){
+                    $ketemu = false;
+                    if(session()->has('Step'.strval($i))){
+                        $ketemu = true;
+                        break;
+                    }
+                }
+                if(!$ketemu){
+                    return redirect()->route('user.survei',2);
+                }
+            }else if($step == 16){
+                if(!session()->has('Step15')){
+                    return redirect()->route('user.survei',15);
+                }
+            }else if($step == 17){
+                if(!session()->has('Step16')){
+                    return redirect()->route('user.survei',15);
+                }
+            }else{
+                return redirect()->route('user.survei',1);
+            }
+        }else if($step < 1){
+            return redirect()->route('user.survei',1);
+        }
         if($step == 1){
             if(session()->has('Step1')){
                 $this->nama_responden = session('Step1')['nama_responden'];
@@ -101,8 +140,8 @@ class MultiStepForm extends Component{
                 $this->selectedKecamatan = session('Step1')['kecamatan'];
                 $this->selectedDesa = session('Step1')['desa'];
 
-                $this->surveyor = session('Step1')['surveyor'];
-                $this->tanggal = session('Step1')['tanggal'];
+                //$this->surveyor = session('Step1')['surveyor'];
+                //$this->tanggal = session('Step1')['tanggal'];
             }
         }else if($step == 2 && session()->has('Step2')){
             $this->gempa_bumi = session('Step2')['3'];
@@ -210,9 +249,7 @@ class MultiStepForm extends Component{
                 "selectedProvinsi" => "required",
                 "selectedKota" => "required",
                 "selectedKecamatan" => "required",
-                "selectedDesa" => "required",
-                "surveyor" => "required",
-                "tanggal" => "required"
+                "selectedDesa" => "required"
             ],[
                 "nama_responden.required" => "Nama Responden Tidak Boleh Kosong!",
                 "usia.required" => "Usia Tidak Boleh Kosong",
@@ -221,9 +258,7 @@ class MultiStepForm extends Component{
                 "selectedProvinsi.required" => "Silahkan Pilih Provinsi",
                 "selectedKota.required" => "Silahkan Pilih Kabupaten/Kota",
                 "selectedKecamatan.required" => "Silahkan Pilih Kecamatan",
-                "selectedDesa.required" => "Silahkan Pilih Desa",
-                "surveyor.required" => "Nama Surveyor Tidak Boleh Kosong",
-                "tanggal.required" => "Tanggal Survei Tidak Boleh Kosong"
+                "selectedDesa.required" => "Silahkan Pilih Desa"
             ]);
         }else if($this->currentStep > 2 && $this->currentStep < 15){
             $this->validate([
@@ -298,9 +333,7 @@ class MultiStepForm extends Component{
                 "provinsi" => $this->selectedProvinsi,
                 "kota" => $this->selectedKota,
                 "kecamatan" => $this->selectedKecamatan,
-                "desa" => $this->selectedDesa,
-                "surveyor" => $this->surveyor,
-                "tanggal" => $this->tanggal
+                "desa" => $this->selectedDesa
             ));
         }else if($this->currentStep == 2){
             session()->put('Step2',array(
@@ -562,8 +595,8 @@ class MultiStepForm extends Component{
                 'no_param_3' => $data['param_3'],
                 'no_param_4' => $data['param_4'],
                 'no_param_5' => $data['param_5'],
-                'Surveyor' => session('Step1')['surveyor'],
-                'tanggal_survey' => session('Step1')['tanggal']
+                'Surveyor' => session('PegawaiLoged')["nama_pegawai"],
+                'tanggal_survey' => date("Y-m-d")
             ]);
         }
         session()->pull('Step1');
