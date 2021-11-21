@@ -39,10 +39,10 @@ class AdminController extends Controller{
                 'password' => 'required'
             ]);
 
-            $isDuplicate = DB::table('pegawais')->get()->where('NIP','=',$request->input('nip'));
-
-            if($isDuplicate->count() > 0){
-                return back()->with('gagal', 'Gagal Menambahkan Data Pegawai');
+            $isNIPDuplicate = DB::table('pegawais')->get()->where('NIP','=',$request->input('nip'));
+            $isUsernameDuplicate = DB::table('pegawais')->get()->where('username_pegawai','=',$request->input('username'));
+            if($isNIPDuplicate->count() > 0 || $isUsernameDuplicate->count() > 0){
+                return back()->with('gagal', 'Gagal Menambahkan Data Pegawai.<br>NIP atau Username Tidak Boleh Sama!');
             }else{
                 $query = DB::table('pegawais')->insert([
                     'NIP' => $request->input('nip'),

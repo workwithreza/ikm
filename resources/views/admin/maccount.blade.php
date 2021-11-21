@@ -103,8 +103,8 @@
                             @endif
 
                             @if (Session::get('gagal'))
-                                <div class="alert alert-danger">
-                                    {{ Session::get('gagal') }}
+                                <div class="alert alert-danger text-center">
+                                    {!! Session::get('gagal') !!}
                                 </div>
                             @endif
                             <form action="{{ route('admin.tambah') }}" method="post">
