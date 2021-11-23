@@ -64,6 +64,13 @@ class AdminController extends Controller{
                 'usernameedit' => 'required'
             ]);
 
+            $pegawai = DB::table('pegawais')->where('username_pegawai','=',$request->input('usernameedit'))->where('nip','=',$request->input('nipedit'))->get();
+            if($pegawai->count() == 0){
+                $username = DB::table('pegawais')->where('username_pegawai','=',$request->input('usernameedit'))->get();
+                if($username->count() > 0){
+                    return back()->with('gagal', 'Gagal Update Data Pegawai');
+                }
+            }
             if($request->input('passwordedit')){
                 $edit = DB::table('pegawais')->where('NIP',$request->input('nipedit'))
                 ->update([
