@@ -44,7 +44,10 @@
                     <div class="content d-flex flex-column justify-content-center vh-100">
                         <h3>Indeks Kesiapsiagaan Masyarakat</h3>
                         <div class="d-flex flex-row justify-content-around">
-                            <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a> <a href="{{ route('user.lihat-survei') }}" class="btn-detail">Lihat Survey</a>
+                            @if ($tanggal->status == 1)
+                                <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a>
+                            @endif
+                            <a href="{{ route('user.lihat-survei') }}" class="btn-detail">Lihat Survey</a>
                         </div>
                     </div>
                 </div>

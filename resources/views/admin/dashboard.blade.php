@@ -34,7 +34,7 @@
                     <ul>
                         <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                         <li><a href="{{ route('admin.akun') }}">Manajemen Akun</a></li>
-                        <li><a href="{{ route('user.dashboard') }}">Survey</a></li>
+                        <li><a href="{{ route('admin.jadwal') }}">Jadwal Survei</a></li>
                     </ul>
                 </div>
 
@@ -45,8 +45,8 @@
                 </div>
             </div>
 
-            <div class="content-wrapper">
-                <div class="box d-flex justify-content-center align-items-center">
+            <div class="content-wrapper" style="width: 100%;">
+                <div class="box d-flex justify-content-center align-items-center" style="width: 100%;">
                     <div class="logo">
                         <img src="{{ asset('image/man-user.png') }}" alt="Pegawai" width="30">
                     </div>
