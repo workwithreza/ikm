@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.css') }}">
     <link rel="icon" href="{{ asset('image/BPBD.png') }}" type="image/icon type">
     <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}">
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="header-background"></div>
