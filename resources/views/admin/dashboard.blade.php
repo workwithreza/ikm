@@ -35,6 +35,7 @@
                         <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                         <li><a href="{{ route('admin.akun') }}">Manajemen Akun</a></li>
                         <li><a href="{{ route('admin.jadwal') }}">Jadwal Survei</a></li>
+                        <li><a href="{{ route('user.dashboard') }}">Survei</a></li>
                     </ul>
                 </div>
 
