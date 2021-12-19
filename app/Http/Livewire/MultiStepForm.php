@@ -587,6 +587,7 @@ class MultiStepForm extends Component{
             $no = DB::table('param_1_2')->select('no_param_1_2')->latest('no_param_1_2')->first()->no_param_1_2 ?? 0;
             $data['param_1_2_'.$i] = $no;
 
+            $tanggal = DB::table('tanggal_survei')->where('status','<>','2')->orderBy('mulai_survei','asc')->first();
             //Insert to Survey
             DB::table('survey')->insert([
                 'NIP' => session('PegawaiLoged')->NIP,
@@ -596,6 +597,7 @@ class MultiStepForm extends Component{
                 'no_param_4' => $data['param_4'],
                 'no_param_5' => $data['param_5'],
                 'Surveyor' => session('PegawaiLoged')["nama_pegawai"],
+                'id_tanggal_survei' => $tanggal->id,
                 'tanggal_survey' => date("Y-m-d")
             ]);
         }

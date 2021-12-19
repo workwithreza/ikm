@@ -45,11 +45,11 @@
                         <h3>Indeks Kesiapsiagaan Masyarakat</h3>
                         <div class="d-flex flex-row justify-content-around">
                             @if ($tanggal != NULL)
-                                @if ($tanggal->status == 1 || $akun->is_admin === 1)
+                                @if ($tanggal->status == 1 || $akun->is_admin == 1)
                                     <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a>
                                 @endif
                             @endif
-                            @if ($tanggal === NULL)
+                            @if ($tanggal === NULL && $akun->is_admin == 1)
                                 <a href="{{ route('user.survei',1) }}" class="btn-survey">Lakukan Survey</a>
                             @endif
                             <a href="{{ route('user.lihat-survei') }}" class="btn-detail">Lihat Survey</a>
